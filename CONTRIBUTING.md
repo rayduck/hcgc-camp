@@ -23,7 +23,7 @@ copy locally.
 ```text
 $ git clone https://github.com/:username/hcgc-camp
 $ cd hcgc-camp
-$ git remote add upstream github https://github.com/rayduck/hcgc-camp
+$ git remote add upstream https://github.com/rayduck/hcgc-camp
 ```
 
 #### Which branch?
