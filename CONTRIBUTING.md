@@ -21,9 +21,9 @@ Fork the project [on GitHub](https://github.com/rayduck/hcgc-camp) and check out
 copy locally.
 
 ```text
-$ git clone https://github.com/rayduck/hcgc-camp
-$ cd node
-$ git remote add github https://github.com/rayduck/hcgc-camp
+$ git clone https://github.com/:username/hcgc-camp
+$ cd hcgc-camp
+$ git remote add upstream github https://github.com/rayduck/hcgc-camp
 ```
 
 #### Which branch?
@@ -90,14 +90,21 @@ run `git shortlog` or `git log --oneline`.
 Check the output of `git log --oneline files_that_you_changed` to find out
 what subsystem (or subsystems) your changes touch.
 
+If your patch fixes an open issue, you can add a reference to it at the end
+of the log. Use the `Fixes:` prefix and the full issue URL. For example:
+
+```txt
+Fixes: https://github.com/rayduck/hcgc-camp/issues/1337
+```
+
 
 ### Step 4: Rebase
 
 Use `git rebase` (not `git merge`) to sync your work from time to time.
 
 ```text
-$ git fetch github
-$ git rebase github/master
+$ git fetch upstream
+$ git rebase upstream/master
 ```
 
 ### Step 5: Test
@@ -110,7 +117,7 @@ Make sure that the code actually works through intensive testing and ensuring th
 $ git push origin my-branch
 ```
 
-Go to https://github.com/yourusername/hcgc-camp and select your branch.
+Go to https://github.com/:username/hcgc-camp and select your branch.
 Click the 'Pull Request' button and fill out the form.
 
 Pull requests are usually reviewed within a few days.
