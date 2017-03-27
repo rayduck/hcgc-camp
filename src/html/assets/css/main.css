@@ -2865,7 +2865,6 @@ body.homepage.is-loading #header:after {
 		top: 0;
 		width: 100%;
 		height: 100%;
-		background: url("images/overlay.png");
 		background-size: 128px 128px;
 	}
 	#navPanel .link {
