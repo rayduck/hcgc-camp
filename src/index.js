@@ -15,14 +15,6 @@ const Root = () => (
       <Route path='/join' component={SchoolPicker} />
       <Route path='/school/:schoolId' component={School} />
       <Route path='/admin' component={Admin} />
-      <br />
-      <a href='/'>home</a>
-      <br />
-      <a href='/join'>join</a>
-      <br />
-      <a href='/school/1'>school</a>
-      <br />
-      <a href='/admin'>admin page</a>
     </div>
   </Router>
 )
