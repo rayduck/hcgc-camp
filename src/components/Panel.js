@@ -10,11 +10,12 @@ class Panel extends Component {
       diet: this.diet.value
     }
     this.props.addStudent(student)
+    this.panelForm.reset()
   }
   render () {
     return (
       <div className='panel' onSubmit={(e) => this.addStudent(e)}>
-        <form action='' className='student-form'>
+        <form ref={(input) => this.panelForm = input} action='' className='student-form'>
           <input ref={(input) => this.name = input} type='text' placeholder='Student Name' />
           <select>
             <option value='male'>Male</option>
