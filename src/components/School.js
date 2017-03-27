@@ -4,6 +4,7 @@ import base from '../base'
 
 import StudentInfo from './StudentInfo'
 import Panel from './Panel'
+import Student from './Student'
 
 class School extends Component {
   constructor () {
@@ -28,6 +29,9 @@ class School extends Component {
       <div className='School'>
         <h2>This is the School participants portion</h2>
         <p>School is {this.props.match.params.schoolId}</p>
+        <ul className='list-of-students'>
+          {Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
+        </ul>
         <StudentInfo />
         <Panel addStudent={this.addStudent} />
       </div>
