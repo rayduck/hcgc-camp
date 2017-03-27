@@ -5,6 +5,25 @@
 */
 
 (function($) {
+	window.onscroll = function() {
+		scrollFunction();
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+			document.getElementById("back-to-top").style.display = "block";
+		}
+		else {
+			document.getElementById("back-to-top").style.display = "none";
+		}
+	}
+
+
+	$('#back-to-top').click(function() {
+		$('html, body').animate({
+			scrollTop: '0px'
+		}, 850);
+	});
 
 	function getTimeRemaining(endtime) {
 		var t = Date.parse(endtime) - Date.parse(new Date());

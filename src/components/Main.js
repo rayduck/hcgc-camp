@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, {
+	Component
+}
+from 'react'
 import '../html/assets/css/main.css'
 import '../html/assets/css/font-awesome.min.css'
 
@@ -9,12 +12,12 @@ var imgMovie = require('../html/images/Movie.jpg')
 var imgGroup = require('../html/images/Group.jpg')
 
 class Main extends Component {
-  constructor () {
-    super()
-  }
-  render () {
-    return (
-		<div className="Main">
+	constructor() {
+		super()
+	}
+	render() {
+		return (
+			<div className="Main">
 				<div id="header">
 					<div className="inner">
 						<header>
@@ -65,6 +68,8 @@ class Main extends Component {
 						</p>
 					</header>
 				</section>
+				
+				<a class="back-to-top" style="display: inline;" id="back-to-top">Back to Top</a>
 
 				<section className="carousel" id="carousel">
 					<div className="reel">
@@ -165,73 +170,6 @@ class Main extends Component {
 				<div id="footer">
 					<div className="container">
 						<div className="row">
-
-							<section className="4u 12u(mobile)">
-								<header>
-									<h2 className="icon fa-train circled"><span className="label">Train</span></h2>
-								</header>
-								<ul className="divided">
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>Tan Kah Kee MRT Station (Downtown Line DT8)</a></h3>
-											</header>
-										</article>
-									</li>
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>Enter via gate next to the MRT station</a></h3>
-											</header>
-										</article>
-									</li>
-								</ul>
-							</section>
-
-							<section className="4u 12u(mobile)">
-								<header>
-									<h2 className="icon fa-bus circled"><span className="label">Bus</span></h2>
-								</header>
-								<ul className="divided">
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>66, 67, 74, 151, 154, 156, 157, 170, 171, 174, 852,  961</a></h3>
-											</header>
-										</article>
-									</li>
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>Alight at Hwa Chong JC (Bus Stop No. 41051)</a></h3>
-											</header>
-										</article>
-									</li>
-								</ul>
-							</section>
-
-							<section className="4u 12u(mobile)">
-								<header>
-									<h2 className="icon fa-car circled"><span className="label">Car</span></h2>
-								</header>
-								<ul className="divided">
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>Drive along Bukit Timah Road towards HCI</a></h3>
-											</header>
-										</article>
-									</li>
-									<li>
-										<article className="post stub">
-											<header>
-												<h3><a>Make a left turn into Gate 2 after Duchess Road</a></h3>
-											</header>
-										</article>
-									</li>
-								</ul>
-							</section>
-
 						</div>
 						<hr />
 						<div className="row">
@@ -260,8 +198,8 @@ class Main extends Component {
 					</div>
 				</div>
 			</div>
-    )
-  }
+		)
+	}
 }
 
 export default Main
