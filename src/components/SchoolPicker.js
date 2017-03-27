@@ -8,7 +8,7 @@ class SchoolPicker extends React.Component {
   goToSchool (event) {
     event.preventDefault()
     const schoolId = this.schoolInput.value
-    this.context.router.transitionTo(`/school/${schoolId}`)
+    this.props.history.push(`/school/${schoolId}`)
   }
   render () {
     return (
