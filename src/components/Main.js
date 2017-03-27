@@ -9,6 +9,9 @@ var imgMovie = require('../html/images/Movie.jpg')
 var imgGroup = require('../html/images/Group.jpg')
 
 class Main extends Component {
+  constructor () {
+    super()
+  }
   render () {
     return (
 		<div className="Main">
