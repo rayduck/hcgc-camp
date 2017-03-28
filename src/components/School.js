@@ -1,3 +1,5 @@
+// This component is the main controller for adding students etc
+
 import React, { Component } from 'react'
 import {BrowserRouter as Router, RouterContext, Route, Link} from 'react-router-dom'
 import base from '../base'
@@ -16,6 +18,16 @@ class School extends Component {
       students: {}
     }
   }
+  componentWillMount () {
+    // Sync state with the specific school db
+    this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
+      context: this,
+      state: 'students'
+    })
+  }
+  componentWillUnmount () {
+    base.removeBinding(this.ref)
+  }
   addStudent (student) {
     // update state
     const students = {...this.state.students}
@@ -23,6 +35,11 @@ class School extends Component {
     students[`student-${timestamp}`] = student
     // set state
     this.setState({ students })
+  }
+  removeStudent (student) {
+    const students = {...this.state.students}
+    this.setState({ students })
+    // TODO
   }
   render () {
     return (
