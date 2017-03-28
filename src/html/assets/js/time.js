@@ -1,4 +1,4 @@
-function getTimeRemaining(endtime) {
+function GetTimeRemaining(endtime) {
 	var t = Date.parse(endtime) - Date.parse(new Date());
 	var seconds = Math.floor((t / 1000) % 60);
 	var minutes = Math.floor((t / 1000 / 60) % 60);
@@ -13,15 +13,16 @@ function getTimeRemaining(endtime) {
 	};
 }
 
-function initializeClock(id, endtime) {
+function InitializeClock(id, endtime) {
+	var timeinterval = setInterval(UpdateClock, 1000);
 	var clock = document.getElementById(id);
 	var daysSpan = clock.querySelector('.days');
 	var hoursSpan = clock.querySelector('.hours');
 	var minutesSpan = clock.querySelector('.minutes');
 	var secondsSpan = clock.querySelector('.seconds');
 
-	function updateClock() {
-		var t = getTimeRemaining(endtime);
+	function UpdateClock() {
+		var t = GetTimeRemaining(endtime);
 
 		daysSpan.innerHTML = t.days;
 		hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -33,9 +34,21 @@ function initializeClock(id, endtime) {
 		}
 	}
 
-	updateClock();
-	var timeinterval = setInterval(updateClock, 1000);
+	UpdateClock();
 }
 
 var deadline = 'June 1 2017 09:00:00 UTC+0800';
-initializeClock('clockdiv', deadline);
+InitializeClock('clockdiv', deadline);
+
+window.onscroll = function() {
+	ScrollFunction();
+};
+
+function ScrollFunction() {
+	if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+		document.getElementById("back-to-top").style.display = "block";
+	}
+	else {
+		document.getElementById("back-to-top").style.display = "none";
+	}
+}
