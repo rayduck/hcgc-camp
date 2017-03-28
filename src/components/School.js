@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, RouterContext, Route, Link} from 'react-router-dom'
 import base from '../base'
 
-import StudentInfo from './StudentInfo'
 import Panel from './Panel'
 import Student from './Student'
 
@@ -13,6 +12,8 @@ class School extends Component {
     super()
     // bind some stuff
     this.addStudent = this.addStudent.bind(this)
+    this.removeStudent = this.removeStudent.bind(this)
+
     // initialize state
     this.state = {
       students: {}
@@ -36,20 +37,20 @@ class School extends Component {
     // set state
     this.setState({ students })
   }
-  removeStudent (student) {
+  removeStudent (studentId) {
     const students = {...this.state.students}
+    students[studentId] = null
     this.setState({ students })
-    // TODO
   }
+  // Will consider adding updateStudent if necessary
   render () {
     return (
       <div className='School'>
         <h2>This is the School participants portion</h2>
         <p>School is {this.props.match.params.schoolId}</p>
         <ul className='list-of-students'>
-          {Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
+          {Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
-        <StudentInfo />
         <Panel addStudent={this.addStudent} />
       </div>
     )

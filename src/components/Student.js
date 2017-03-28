@@ -17,6 +17,7 @@ class Student extends Component {
         <p className='student-diet'>
           {details.diet}
         </p>
+        <button onClick={() => this.props.removeStudent(this.props.studentId)}>&times;</button>
       </li>
     )
   }
