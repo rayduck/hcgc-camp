@@ -5,7 +5,7 @@ from 'react'
 import '../html/assets/css/main.css'
 import '../html/assets/css/font-awesome.min.css'
 import Clock from './Clock'
-// import '../html/assets/js/time.js'
+import BackToTop from './BackToTop'
 
 var imgIB = require('../html/images/IB.jpg')
 var imgAR = require('../html/images/AR.jpg')
@@ -53,7 +53,7 @@ class Main extends Component {
               <Clock deadline={deadline} />
             </header>
           </section>
-          <a className='back-to-top' id='back-to-top'>Back to Top</a>
+          <BackToTop />
           <section className='carousel' id='carousel'>
             <div className='reel'>
 
