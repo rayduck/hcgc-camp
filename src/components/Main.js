@@ -6,8 +6,9 @@ import '../html/assets/css/main.css'
 import '../html/assets/css/font-awesome.min.css'
 import Clock from './Clock'
 import BackToTop from './BackToTop'
+import GalleryScroll from './GalleryScroll'
 
-var imgIB = require('../html/images/IB.jpg')
+//var imgIB = require('../html/images/IB.jpg')
 var imgAR = require('../html/images/AR.jpg')
 var imgDIY = require('../html/images/DIY.jpg')
 var imgMovie = require('../html/images/Movie.jpg')
@@ -55,7 +56,7 @@ class Main extends Component {
             <div className='reel'>
 
               <article>
-                <a className='image featured'><img src={imgIB} alt='' /></a>
+                <a className='image featured'><GalleryScroll /></a>
                 <header>
                   <h3><a>Icebreakers</a></h3>
                 </header>
