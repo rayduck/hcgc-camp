@@ -2552,8 +2552,8 @@ header .icon.circled {
 .carousel .reel {
 	white-space: nowrap;
 	position: relative;
-	-webkit-overflow-scrolling: touch;
 	padding: 0 2em 0 2em;
+	overflow-x: scroll;
 }
 
 .carousel article {
@@ -2565,9 +2565,6 @@ header .icon.circled {
 	margin: 0 2em 0 0;
 	white-space: normal;
 	opacity: 1.0;
-	-moz-transition: opacity 0.75s ease-in-out;
-	-webkit-transition: opacity 0.75s ease-in-out;
-	-ms-transition: opacity 0.75s ease-in-out;
 	transition: opacity 0.75s ease-in-out;
 }
 

@@ -13,13 +13,13 @@ var imgDIY = require('../html/images/DIY.jpg')
 var imgMovie = require('../html/images/Movie.jpg')
 var imgGroup = require('../html/images/Group.jpg')
 
-const deadline = 'June 1 2017 09:00:00 UTC+0800'
+const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  constructor () {
+  constructor() {
     super()
   }
-  render () {
+  render() {
     return (
       <div className='Main'>
         <div id='page-wrapper'>
@@ -31,7 +31,7 @@ class Main extends Component {
                 <p>June 1, 2017</p>
               </header>
               <footer>
-                <a href='#banner' className='button circled scrolly'>More</a>
+                <a href='/join' className='button circled scrolly'>Register</a>
               </footer>
             </div>
 
@@ -88,38 +88,6 @@ class Main extends Component {
                 </header>
                 <p>Watch a movie and discuss their thoughts to bring awareness to environmental conservation.</p>
               </article>
-              <article>
-                <a className='image featured'><img src={imgIB} alt='' /></a>
-                <header>
-                  <h3><a>Icebreakers</a></h3>
-                </header>
-                <p>Enjoy a few games along with their assigned facilitators!</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgAR} alt='' /></a>
-                <header>
-                  <h3><a>Amazing Race</a></h3>
-                </header>
-                <p>Grouped into teams and visit booths around the school to play educational games.</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgDIY} alt='' /></a>
-                <header>
-                  <h3><a>Do-It-Yourself Workshop</a></h3>
-                </header>
-                <p>Behold the power of upcycling! DIY a personal terrarium.</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgMovie} alt='' /></a>
-                <header>
-                  <h3><a>Movie Time & Discussion</a></h3>
-                </header>
-                <p>Watch a movie and discuss their thoughts to bring awareness to environmental conservation.</p>
-              </article>
-
             </div>
           </section>
 
@@ -130,8 +98,7 @@ class Main extends Component {
               <header id='about'>
                 <h2>About the Camp</h2>
                 <p>
-								"Be the change that you wish to see in the world.”
-								~Mahatma Gandhi
+								Carbon-less tomorrow
 							</p>
               </header>
               <p>
@@ -152,6 +119,14 @@ class Main extends Component {
           <div id='footer'>
             <div className='container'>
               <div className='row' />
+              <div className='12u'>
+                  <section className='contact'>
+                    <header>
+                      <h3>"Be the change that you wish to see in the world.”
+								~Mahatma Gandhi</h3>
+                    </header>
+                  </section>
+              </div>
               <hr />
               <div className='row'>
                 <div className='12u'>
