@@ -7,28 +7,26 @@ class GalleryScroll extends Component {
     constructor() {
         super()
         this.Scroll = this.Scroll.bind(this)
-        this.state = {}
-    }
-    componentWillMount() {
-        this.Scroll()
+        this.state = {
+            IB: '../html/images/IB.jpg',
+            
+        }
     }
 
-    componentDidMount() {
-        var IB = ['../../html/images/IB.jpg'];
-        var AR = ['../../html/images/AR.jpg'];
-        var DIY = ['../../html/images/DIY.jpg'];
-        var Movie = ['../../html/images/Movie.jpg'];
-
-    }
     Scroll() {
         window.setInterval(changeImage, 3000);
+
         function changeImage() {
             var i = Math.floor((Math.random()));
         }
     }
     render() {
+        var AR = ['../html/images/AR.jpg'];
+        var IB = [require('../html/images/IB.jpg'), require('../html/images/AR.jpg')]
+        var DIY = ['../html/images/DIY.jpg'];
+        var Movie = ['../html/images/Movie.jpg'];
         return (
-            <img src="__dirname + ./html/images/IB.jpg" alt='' />
+            <img src={IB[0]} alt='' />
         )
     }
 }

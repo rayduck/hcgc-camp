@@ -8,7 +8,7 @@ import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
 
-//var imgIB = require('../html/images/IB.jpg')
+var imgIB = require('../html/images/IB.jpg')
 var imgAR = require('../html/images/AR.jpg')
 var imgDIY = require('../html/images/DIY.jpg')
 var imgMovie = require('../html/images/Movie.jpg')
