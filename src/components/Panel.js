@@ -9,17 +9,13 @@ class Panel extends Component {
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
-    if (student.name.length === 1) {
-      this.props.addStudent(student)
-    } else {
-      for (let i in student.name) {
-        this.props.addStudent({
-          name: student.name[i],
-          age: student.age[i],
-          contact: student.contact[i],
-          diet: student.diet[i]
-        })
-      }
+    for (let i in student.name) {
+      this.props.addStudent({
+        name: student.name[i],
+        age: student.age[i],
+        contact: student.contact[i],
+        diet: student.diet[i]
+      })
     }
     this.panelForm.reset()
   }
