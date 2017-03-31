@@ -5,8 +5,10 @@
 ### Todo
 
 - [x] Routing
-- [ ] Setup authentication with firebase
-- [ ] Main component (info about the camp)
-- [ ] Students component
+- [x] Setup authentication with firebase
+- [x] Main component (info about the camp)
+- [x] Students component
 - [ ] Admin component
+- [ ] Export to JSON/CSV/EXCEL
+- [ ] Add user instructions
 - [ ] Styling (preferably with flexbox)
