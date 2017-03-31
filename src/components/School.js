@@ -1,7 +1,6 @@
 // This component is the main controller for adding students etc
 
 import React, { Component } from 'react'
-import {BrowserRouter as Router, RouterContext, Route, Link} from 'react-router-dom'
 import base from '../base'
 
 import Panel from './Panel'
@@ -13,10 +12,20 @@ class School extends Component {
     // bind some stuff
     this.addStudent = this.addStudent.bind(this)
     this.removeStudent = this.removeStudent.bind(this)
+    this.renderLogin = this.renderLogin.bind(this)
+    this.authenticate = this.authenticate.bind(this)
+    this.authHandler = this.authHandler.bind(this)
+    this.handleEmailChange = this.handleEmailChange.bind(this)
+    this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.logout = this.logout.bind(this)
 
     // initialize state
     this.state = {
-      students: {}
+      students: {},
+      uid: '',
+      email: '',
+      password: '',
+      loginText: 'Please Login'
     }
   }
   componentWillMount () {
@@ -25,6 +34,13 @@ class School extends Component {
       context: this,
       state: 'students'
     })
+  }
+  componentDidMount () {
+    base.onAuth((user) => {
+      if (user) {
+        this.authHandler(null, user)
+      }
+    }) // Auth user under the hood if already logged in
   }
   componentWillUnmount () {
     base.removeBinding(this.ref)
@@ -37,31 +53,87 @@ class School extends Component {
     // set state
     this.setState({ students })
   }
+  handleEmailChange (e) {
+    this.setState({email: e.target.value})
+  }
+  handlePasswordChange (e) {
+    this.setState({password: e.target.value})
+  }
   removeStudent (studentId) {
     const students = {...this.state.students}
     students[studentId] = null
     this.setState({ students })
   }
+  authenticate (event) {
+    event.preventDefault()
+    base.authWithPassword({email: this.state.email, password: this.state.password}, this.authHandler)
+  }
+  authHandler (err, authData) {
+    if (err) {
+      this.setState({loginText: 'Wrong Username or Password. Please try again!'})
+      return
+    }
+    const schoolRef = base.database().ref(this.props.match.params.schoolId)
+    // query fb once for school data
+    schoolRef.once('value', (snapshot) => {
+      const data = snapshot.val() || {}
+
+      // claim ownership for first time
+      if (!data.owner) {
+        schoolRef.set({
+          owner: authData.uid
+        })
+      }
+
+      this.setState({
+        uid: authData.uid,
+        owner: data.owner || authData.uid
+      })
+    })
+  }
+  logout () {
+    base.unauth()
+    this.setState({ uid: null })
+  }
+  renderLogin () {
+    return (
+      <div>
+        <h2>{this.state.loginText}</h2>
+        <form className='login' onSubmit={this.authenticate}>
+          <input type='text' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
+          <input type='password' required placeholder='Password' value={this.state.password} onChange={this.handlePasswordChange} />
+          <button type='submit' className='signin'>Submit</button>
+        </form>
+      </div>
+    )
+  }
   // Will consider adding updateStudent if necessary
   render () {
+    const logoutBtn = <button onClick={this.logout}>Logout</button>
+
+    if (!this.state.uid) {
+      return <div>{this.renderLogin()}</div>
+    }
+    if (this.state.uid !== this.state.owner) {
+      return (
+        <div>
+          <h2>Unauthenticated</h2>
+          {logoutBtn}
+        </div>
+
+      )
+    }
     return (
       <div className='School'>
-        <h2>This is the School participants portion</h2>
-        <p>School is {this.props.match.params.schoolId}</p>
+        <p>Welcome, {this.props.match.params.schoolId}</p>
+        {logoutBtn}
         <ul className='list-of-students'>
-          {Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
+          { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
         <Panel addStudent={this.addStudent} />
       </div>
     )
   }
 }
-/*
-const School = ({match}) => (
-  <div>
-    <h3>school is {match.params.schoolId}</h3>
-  </div>
-)
-*/
 
 export default School

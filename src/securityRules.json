@@ -1,0 +1,10 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": "!data.exists()",
+      "$school" : {
+        ".write" : "newData.child('owner').val() === auth.uid",
+        ".read" : true
+      }
+  }
+}

@@ -13,8 +13,8 @@ class SchoolPicker extends React.Component {
   render () {
     return (
       <form className='school-selector' onSubmit={this.goToSchool}>
-        <h2>Please Enter A School</h2>
-        <input type='text'required placeholder='Enter your School code' ref={(input) => { this.schoolInput = input }} />
+        <h2>Please Enter Your School</h2>
+        <input type='text'required placeholder='Enter your School Code' ref={(input) => { this.schoolInput = input }} />
         <button type='submit'>Signup</button>
       </form>
     )

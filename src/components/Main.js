@@ -16,9 +16,6 @@ var imgGroup = require('../html/images/Group.jpg')
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  constructor () {
-    super()
-  }
   render () {
     return (
       <div className='Main'>
