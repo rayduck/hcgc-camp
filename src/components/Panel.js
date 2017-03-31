@@ -9,7 +9,7 @@ class Panel extends Component {
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
-    if (student.name.length == 1) {
+    if (student.name.length === 1) {
       this.props.addStudent(student)
     } else {
       for (let i in student.name) {

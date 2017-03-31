@@ -16,10 +16,10 @@ var imgGroup = require('../html/images/Group.jpg')
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  constructor() {
+  constructor () {
     super()
   }
-  render() {
+  render () {
     return (
       <div className='Main'>
         <div id='page-wrapper'>
@@ -120,12 +120,12 @@ class Main extends Component {
             <div className='container'>
               <div className='row' />
               <div className='12u'>
-                  <section className='contact'>
-                    <header>
-                      <h3>"Be the change that you wish to see in the world.”
+                <section className='contact'>
+                  <header>
+                    <h3>"Be the change that you wish to see in the world.”
 								~Mahatma Gandhi</h3>
-                    </header>
-                  </section>
+                  </header>
+                </section>
               </div>
               <hr />
               <div className='row'>
