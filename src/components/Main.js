@@ -2,17 +2,17 @@ import React, {
   Component
 }
 from 'react'
-import '../html/assets/css/main.css'
-import '../html/assets/css/font-awesome.min.css'
+import '../css/main.css'
+import '../css/font-awesome.min.css'
 import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
 
-var imgIB = require('../html/images/IB.jpg')
-var imgAR = require('../html/images/AR.jpg')
-var imgDIY = require('../html/images/DIY.jpg')
-var imgMovie = require('../html/images/Movie.jpg')
-var imgGroup = require('../html/images/Group.jpg')
+var imgIB = require('../images/IB.jpg')
+var imgAR = require('../images/AR.jpg')
+var imgDIY = require('../images/DIY.jpg')
+var imgMovie = require('../images/Movie.jpg')
+var imgGroup = require('../images/Group.jpg')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 

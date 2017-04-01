@@ -21,10 +21,10 @@ class GalleryScroll extends Component {
         }
     }
     render() {
-        var AR = ['../html/images/AR.jpg'];
-        var IB = [require('../html/images/IB.jpg'), require('../html/images/AR.jpg')]
-        var DIY = ['../html/images/DIY.jpg'];
-        var Movie = ['../html/images/Movie.jpg'];
+        var AR = ['../images/AR.jpg'];
+        var IB = [require('../images/IB.jpg'), require('../images/AR.jpg')]
+        var DIY = ['../images/DIY.jpg'];
+        var Movie = ['../images/Movie.jpg'];
         return (
             <img src={IB[0]} alt='' />
         )

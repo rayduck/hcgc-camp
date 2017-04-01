@@ -2121,7 +2121,7 @@ header .icon.circled {
 
 #header {
 	position: relative;
-	background-image: url("../../images/P6010691.jpg");
+	background-image: url("../images/P6010691.jpg");
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -2503,17 +2503,6 @@ header .icon.circled {
 	-ms-transition: background-color 0.35s ease-in-out;
 	transition: background-color 0.35s ease-in-out;
 	-webkit-backface-visibility: hidden;
-}
-
-.carousel .forward:after,
-.carousel .backward:after {
-	content: '';
-	width: 3em;
-	height: 3em;
-	position: absolute;
-	top: 50%;
-	margin: -1.5em 0 0 0;
-	background: url("images/arrow.svg") no-repeat center center;
 }
 
 .carousel .forward:hover:before,
