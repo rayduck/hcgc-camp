@@ -8,16 +8,16 @@ import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
 
-var imgIB = require('../images/IB.jpg')
+/*var imgIB = require('../images/IB.jpg')
 var imgAR = require('../images/AR.jpg')
 var imgDIY = require('../images/DIY.jpg')
-var imgMovie = require('../images/Movie.jpg')
-var imgGroup = require('../images/Group.jpg')
+var imgMovie = require('../images/Movie.jpg') */
+var imgGroup = require('../images/Group.jpg') 
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  render () {
+  render() {
     return (
       <div className='Main'>
         <div id='page-wrapper'>
@@ -53,40 +53,7 @@ class Main extends Component {
           </section>
           <BackToTop />
           <section className='carousel' id='carousel'>
-            <div className='reel'>
-
-              <article>
-                <a className='image featured'><GalleryScroll /></a>
-                <header>
-                  <h3><a>Icebreakers</a></h3>
-                </header>
-                <p>Enjoy a few games along with their assigned facilitators!</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgAR} alt='' /></a>
-                <header>
-                  <h3><a>Amazing Race</a></h3>
-                </header>
-                <p>Grouped into teams and visit booths around the school to play educational games.</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgDIY} alt='' /></a>
-                <header>
-                  <h3><a>Do-It-Yourself Workshop</a></h3>
-                </header>
-                <p>Behold the power of upcycling! DIY a personal terrarium.</p>
-              </article>
-
-              <article>
-                <a className='image featured'><img src={imgMovie}alt='' /></a>
-                <header>
-                  <h3><a>Movie Time & Discussion</a></h3>
-                </header>
-                <p>Watch a movie and discuss their thoughts to bring awareness to environmental conservation.</p>
-              </article>
-            </div>
+            <GalleryScroll />
           </section>
 
           <div className='wrapper style2'>
