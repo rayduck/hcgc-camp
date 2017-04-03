@@ -12,7 +12,7 @@ import GalleryScroll from './GalleryScroll'
 var imgAR = require('../images/AR.jpg')
 var imgDIY = require('../images/DIY.jpg')
 var imgMovie = require('../images/Movie.jpg') */
-var imgGroup = require('../images/Group.jpg') 
+var imgGroup = require('../images/Group.jpg')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
@@ -63,12 +63,17 @@ class Main extends Component {
               <header id='about'>
                 <h2>About the Camp</h2>
                 <p>
-								Carbon-less tomorrow
+								Reducing your carbon footprint
 							</p>
               </header>
               <p>
-							Organised by Hwa Chong Green Council, we wish to expose primary school students to the various environmental issues that we face, and educate them on what they can do to make a change. Through greater environmental awareness, we aim to strive to greater
-							heights. Join the camp today for a fulfilling experience that you will never forget! See you there!
+              What is a carbon footprint? It is the total amount of greenhouse gases produced to directly and indirectly support human activities, usually expressed in equivalent tons of
+              carbon dioxide (CO2). Despite only contributing around 0.11% of global emissions, Singapore ranks 26th out of 142 countries in terms of emissions per capita. This means that Singaporeans are not
+              as environmentally-friendly as we should be.
+              Thankfully, this problem can easily be rectified by making adjustments to our daily habits.
+              <br />
+							<br />
+							Organised by Hwa Chong Green Council, we wish to expose primary school students to the various environmental issues that we face, and educate them on what they can do to make a change. Join the camp today for a fulfilling experience that you will never forget! See you there!
 						</p>
               <footer>
                 <a href='/join' className='button'>Register Now!</a>

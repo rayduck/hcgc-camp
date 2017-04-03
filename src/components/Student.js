@@ -1,24 +1,31 @@
-import React, { Component } from 'react'
+import React, {
+  Component
+}
+from 'react'
 
 class Student extends Component {
-  render () {
-    const { details } = this.props
+  render() {
+    const {
+      details
+    } = this.props
     return (
-      <li className='student'>
-        <p className='student-name'>
+      <li className='student-list'>
+        <div className='student'>
           {details.name}
-        </p>
-        <p className='student-age'>
+        </div>
+        <div className='student'>
           {details.age}
-        </p>
-        <p className='student-contact'>
+        </div>
+        <div className='student'>
           {details.contact}
-        </p>
-        <p className='student-diet'>
+        </div>
+        <div className='student'>
           {details.diet}
-        </p>
-        <button onClick={() => this.props.removeStudent(this.props.studentId)}>&times;</button>
-      </li>
+        </div>
+        <div className='student'>
+        <a onClick={() => this.props.removeStudent(this.props.studentId)}>x</a>
+        </div>
+    </li>
     )
   }
 }

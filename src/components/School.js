@@ -1,15 +1,19 @@
 // This component is the main controller for adding students etc
 
-import React, { Component } from 'react'
+import React, {
+  Component
+}
+from 'react'
 import base from '../base'
 
 import Panel from './Panel'
 import Student from './Student'
+import Navbar from './Navbar'
 
 class School extends Component {
-  constructor () {
+  constructor() {
     super()
-    // bind some stuff
+      // bind some stuff
     this.addStudent = this.addStudent.bind(this)
     this.removeStudent = this.removeStudent.bind(this)
     this.renderLogin = this.renderLogin.bind(this)
@@ -28,53 +32,68 @@ class School extends Component {
       loginText: 'Please Login'
     }
   }
-  componentWillMount () {
+  componentWillMount() {
     // Sync state with the specific school db
     this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
       context: this,
       state: 'students'
     })
   }
-  componentDidMount () {
+  componentDidMount() {
     base.onAuth((user) => {
-      if (user) {
-        this.authHandler(null, user)
-      }
-    }) // Auth user under the hood if already logged in
+        if (user) {
+          this.authHandler(null, user)
+        }
+      }) // Auth user under the hood if already logged in
   }
-  componentWillUnmount () {
+  componentWillUnmount() {
     base.removeBinding(this.ref)
   }
-  addStudent (student) {
+  addStudent(student) {
     // update state
-    const students = {...this.state.students}
+    const students = {...this.state.students
+    }
     const timestamp = Date.now() // using timestamp to generate unique students
     students[`student-${timestamp}`] = student
-    // set state
-    this.setState({ students })
+      // set state
+    this.setState({
+      students
+    })
   }
-  handleEmailChange (e) {
-    this.setState({email: e.target.value})
+  handleEmailChange(e) {
+    this.setState({
+      email: e.target.value
+    })
   }
-  handlePasswordChange (e) {
-    this.setState({password: e.target.value})
+  handlePasswordChange(e) {
+    this.setState({
+      password: e.target.value
+    })
   }
-  removeStudent (studentId) {
-    const students = {...this.state.students}
+  removeStudent(studentId) {
+    const students = {...this.state.students
+    }
     students[studentId] = null
-    this.setState({ students })
+    this.setState({
+      students
+    })
   }
-  authenticate (event) {
+  authenticate(event) {
     event.preventDefault()
-    base.authWithPassword({email: this.state.email, password: this.state.password}, this.authHandler)
+    base.authWithPassword({
+      email: this.state.email,
+      password: this.state.password
+    }, this.authHandler)
   }
-  authHandler (err, authData) {
+  authHandler(err, authData) {
     if (err) {
-      this.setState({loginText: 'Wrong Username or Password. Please try again!'})
+      this.setState({
+        loginText: 'Wrong Username or Password. Please try again!'
+      })
       return
     }
     const schoolRef = base.database().ref(this.props.match.params.schoolId)
-    // query fb once for school data
+      // query fb once for school data
     schoolRef.once('value', (snapshot) => {
       const data = snapshot.val() || {}
 
@@ -91,13 +110,18 @@ class School extends Component {
       })
     })
   }
-  logout () {
+
+
+  logout() {
     base.unauth()
-    this.setState({ uid: null })
+    this.setState({
+      uid: null
+    })
   }
-  renderLogin () {
-    return (
-      <div>
+  renderLogin() {
+      return (
+        <div>
+        <Navbar auth={this.state.uid}/>
         <h2>{this.state.loginText}</h2>
         <form className='login' onSubmit={this.authenticate}>
           <input type='text' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
@@ -105,10 +129,10 @@ class School extends Component {
           <button type='submit' className='signin'>Submit</button>
         </form>
       </div>
-    )
-  }
-  // Will consider adding updateStudent if necessary
-  render () {
+      )
+    }
+    // Will consider adding updateStudent if necessary
+  render() {
     const logoutBtn = <button onClick={this.logout}>Logout</button>
 
     if (!this.state.uid) {
@@ -117,6 +141,7 @@ class School extends Component {
     if (this.state.uid !== this.state.owner) {
       return (
         <div>
+        <Navbar />
           <h2>Unauthenticated</h2>
           {logoutBtn}
         </div>
@@ -125,6 +150,7 @@ class School extends Component {
     }
     return (
       <div className='School'>
+      <Navbar />
         <p>Welcome, {this.props.match.params.schoolId}</p>
         {logoutBtn}
         <ul className='list-of-students'>
