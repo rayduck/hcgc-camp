@@ -1,10 +1,8 @@
-import React, {
-  Component
-}
+import React, { Component }
 from 'react'
 
 class Student extends Component {
-  render() {
+  render () {
     const {
       details
     } = this.props
@@ -23,9 +21,9 @@ class Student extends Component {
           {details.diet}
         </div>
         <div className='student'>
-        <a onClick={() => this.props.removeStudent(this.props.studentId)}>x</a>
+          <a onClick={() => this.props.removeStudent(this.props.studentId)}>x</a>
         </div>
-    </li>
+      </li>
     )
   }
 }

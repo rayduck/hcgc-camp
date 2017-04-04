@@ -1,8 +1,6 @@
 // This component is the main controller for adding students etc
 
-import React, {
-  Component
-}
+import React, { Component }
 from 'react'
 import base from '../base'
 
@@ -147,6 +145,12 @@ class School extends Component {
         <Navbar logout={this.logout} showLogout />
         <p>Welcome, {this.props.match.params.schoolId}</p>
         <ul className='list-of-students'>
+          <ul className='student-list-header'>
+            <li>Name</li>
+            <li>Age</li>
+            <li>Contact</li>
+            <li>Diet</li>
+          </ul>
           { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
         <Panel addStudent={this.addStudent} />
