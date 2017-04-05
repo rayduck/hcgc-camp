@@ -11,7 +11,7 @@ import GalleryScroll from './GalleryScroll'
 /*var imgIB = require('../images/IB.jpg')
 var imgAR = require('../images/AR.jpg')
 var imgDIY = require('../images/DIY.jpg')
-var imgMovie = require('../images/Movie.jpg') */
+var imgMovie = require('../images/Movie.jpg')*/
 var imgGroup = require('../images/Group.jpg')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
@@ -53,9 +53,11 @@ class Main extends Component {
           </section>
           <BackToTop />
           <section className='carousel' id='carousel'>
+            <div className='reel'>
             <GalleryScroll />
+          </div>
           </section>
-
+          
           <div className='wrapper style2'>
 
             <article id='main' className='container special'>
@@ -80,7 +82,7 @@ class Main extends Component {
               </footer>
             </article>
 
-          </div>
+        </div>
 
           <div className='map'>
             <iframe width='100%' height='100%' frameBorder='0' scrolling='no' marginHeight='0' marginWidth='0' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7500027232454!2d103.80099821475402!3d1.3259310990329338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da10a098cda40f%3A0x1765c81afbc57c06!2sHwa+Chong+Institution!5e0!3m2!1sen!2ssg!4v1490495954480' />

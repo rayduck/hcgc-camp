@@ -143,14 +143,23 @@ class School extends Component {
     return (
       <div className='School'>
         <Navbar logout={this.logout} showLogout />
-        <p>Welcome, {this.props.match.params.schoolId}</p>
+        <h2 className="title">Add participants for {this.props.match.params.schoolId} :</h2>
         <ul className='list-of-students'>
-          <ul className='student-list-header'>
-            <li>Name</li>
-            <li>Age</li>
-            <li>Contact</li>
-            <li>Diet</li>
-          </ul>
+            <li className="student-list-header">
+            <div className='student-1'>
+              Name
+            </div>
+            <div className='student-2'>
+              Age
+            </div>
+            <div className='student-1'>
+              Parents' Contact
+            </div>
+            <div className='student-1'>
+              Dietary Requirements
+            </div>
+            <div className='student-2'></div>
+            </li>
           { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
         <Panel addStudent={this.addStudent} />

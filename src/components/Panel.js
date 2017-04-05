@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, {
+  Component
+}
+from 'react'
 
 class Panel extends Component {
-  addStudent (event) {
+  addStudent(event) {
     event.preventDefault()
     const student = {
       name: this.name.value.split('\n'),
@@ -19,17 +22,18 @@ class Panel extends Component {
     }
     this.panelForm.reset()
   }
-  render () {
+  render() {
     return (
       <div className='panel' onSubmit={(e) => this.addStudent(e)}>
         <form ref={(input) => this.panelForm = input} action='' className='student-form'>
-          <textarea ref={(input) => this.name = input} type='text' placeholder='Student Name' required />
-          <textarea ref={(input) => this.gender = input} type='text' placeholder='Student Gender' required />
-          <textarea ref={(input) => this.age = input} type='text' placeholder='Student Age' required />
-          <textarea ref={(input) => this.contact = input} type='text' placeholder='Contact Number' required />
-          <textarea ref={(input) => this.diet = input} type='text' placeholder='Dietary Requirements' required />
+          <textarea rows="8" ref={(input) => this.name = input} type='text' placeholder='Student Name List' required />
+          <textarea rows="8" ref={(input) => this.gender = input} type='text' placeholder='Gender' required />
+          <textarea rows="8" ref={(input) => this.age = input} type='text' placeholder='Age' required />
+          <textarea rows="8" ref={(input) => this.contact = input} type='text' placeholder='Contact Number' required />
+          <textarea rows="8" ref={(input) => this.diet = input} type='text' placeholder='Dietary Requirements' required />
           <button type='submit'>Add</button>
         </form>
+
       </div>
     )
   }

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
 @import url("font-awesome.min.css");
-
 #clockdiv {
 	font-family: sans-serif;
 	color: #fff;
@@ -30,16 +29,8 @@
 	font-size: 16px;
 }
 
-.student-list-header {
-	display: flex
-}
-
-.student-list-header > li {
-	flex : 1
-}
 
 /* Reset */
-
 
 html,
 body,
@@ -2229,6 +2220,17 @@ header .icon.circled {
 	opacity: 1;
 }
 
+.student-list-header {
+	border-bottom: 2px solid #e0e0e0;
+	border-collapse: collapse;
+	padding-top: 5px;
+	display: flex;
+	flex-direction: row;
+	text-transform: uppercase;
+	color: #039;
+	font-weight: bold;
+}
+
 .list-of-students {
 	margin: 0 0 3em 0;
 	padding-left: 15px;
@@ -2240,13 +2242,22 @@ header .icon.circled {
 	flex-grow: 1;
 }
 
-.student {
-	flex-grow: 1;
+.student-1 {
+	flex: 4;
 	width: 100%;
 	padding: 0.8em 1.2em;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	list-style: none;
+	list-style: none
+}
+
+.student-2 {
+	flex: 1;
+	width: 100%;
+	padding: 0.8em 1.2em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	list-style: none
 }
 
 .student-list:hover {
@@ -2260,6 +2271,14 @@ header .icon.circled {
 	padding-top: 5px;
 	display: flex;
 	flex-direction: row;
+}
+
+.title {
+	margin-left: 20px;
+}
+
+.delete {
+	cursor: pointer;
 }
 
 .fixed-nav-bar {
@@ -2276,6 +2295,26 @@ header .icon.circled {
 	font-size: 1.7em;
 	color: white;
 	padding: 6px 0 0 20px;
+}
+
+.pull-right {
+	margin: 5px 5px 0 0;
+}
+
+.student-form {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.student-form textarea {
+	flex: 4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.student-form button {
+	flex: 1;
 }
 
 
@@ -2527,68 +2566,6 @@ header .icon.circled {
 	margin-bottom: 0;
 }
 
-.carousel .forward,
-.carousel .backward {
-	position: absolute;
-	top: 50%;
-	width: 6em;
-	height: 12em;
-	margin-top: -6em;
-	cursor: pointer;
-}
-
-.carousel .forward:before,
-.carousel .backward:before {
-	content: '';
-	display: block;
-	width: 6em;
-	height: 6em;
-	border-radius: 100%;
-	background-color: rgba(72, 57, 73, 0.5);
-	position: absolute;
-	top: 50%;
-	margin-top: -3em;
-	-moz-transition: background-color 0.35s ease-in-out;
-	-webkit-transition: background-color 0.35s ease-in-out;
-	-o-transition: background-color 0.35s ease-in-out;
-	-ms-transition: background-color 0.35s ease-in-out;
-	transition: background-color 0.35s ease-in-out;
-	-webkit-backface-visibility: hidden;
-}
-
-.carousel .forward:hover:before,
-.carousel .backward:hover:before {
-	background-color: rgba(239, 131, 118, 0.75);
-}
-
-.carousel .forward {
-	right: 0;
-}
-
-.carousel .forward:before {
-	right: -3em;
-}
-
-.carousel .forward:after {
-	right: -0.25em;
-}
-
-.carousel .backward {
-	left: 0;
-}
-
-.carousel .backward:before {
-	left: -3em;
-}
-
-.carousel .backward:after {
-	left: -0.25em;
-	-moz-transform: scaleX(-1);
-	-webkit-transform: scaleX(-1);
-	-ms-transform: scaleX(-1);
-	transform: scaleX(-1);
-}
-
 .carousel .reel {
 	white-space: nowrap;
 	position: relative;
@@ -2608,10 +2585,6 @@ header .icon.circled {
 	transition: opacity 0.75s ease-in-out;
 }
 
-.carousel article.loading {
-	opacity: 0;
-}
-
 .carousel article .image {
 	position: relative;
 	left: -1em;
@@ -2619,10 +2592,6 @@ header .icon.circled {
 	width: auto;
 	margin-right: -2em;
 	margin-bottom: 3em;
-}
-
-.carousel article p {
-	text-align: center;
 }
 
 
