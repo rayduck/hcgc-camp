@@ -1,6 +1,6 @@
 // This component is the main controller for adding students etc
 
-import React, { Component }
+import React, {Component}
 from 'react'
 import base from '../base'
 
@@ -9,7 +9,7 @@ import Student from './Student'
 import Navbar from './Navbar'
 
 class School extends Component {
-  constructor () {
+  constructor() {
     super()
       // bind some stuff
     this.addStudent = this.addStudent.bind(this)
@@ -30,26 +30,28 @@ class School extends Component {
       loginText: 'Please Login'
     }
   }
-  componentWillMount () {
+  componentWillMount() {
     // Sync state with the specific school db
     this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
       context: this,
       state: 'students'
     })
   }
-  componentDidMount () {
+  componentDidMount() {
     base.onAuth((user) => {
-      if (user) {
-        this.authHandler(null, user)
-      }
-    }) // Auth user under the hood if already logged in
+        if (user) {
+          console.log(user);
+          this.authHandler(null, user)
+        }
+      }) // Auth user under the hood if already logged in
   }
-  componentWillUnmount () {
+  componentWillUnmount() {
     base.removeBinding(this.ref)
   }
-  addStudent (student) {
+  addStudent(student) {
     // update state
-    const students = {...this.state.students}
+    const students = {...this.state.students
+    }
     const timestamp = Date.now() // using timestamp to generate unique students
     students[`student-${timestamp}`] = student
       // set state
@@ -57,31 +59,32 @@ class School extends Component {
       students
     })
   }
-  handleEmailChange (e) {
+  handleEmailChange(e) {
     this.setState({
       email: e.target.value
     })
   }
-  handlePasswordChange (e) {
+  handlePasswordChange(e) {
     this.setState({
       password: e.target.value
     })
   }
-  removeStudent (studentId) {
-    const students = {...this.state.students}
+  removeStudent(studentId) {
+    const students = {...this.state.students
+    }
     students[studentId] = null
     this.setState({
       students
     })
   }
-  authenticate (event) {
+  authenticate(event) {
     event.preventDefault()
     base.authWithPassword({
       email: this.state.email,
       password: this.state.password
     }, this.authHandler)
   }
-  authHandler (err, authData) {
+  authHandler(err, authData) {
     if (err) {
       this.setState({
         loginText: 'Wrong Username or Password. Please try again!'
@@ -107,15 +110,15 @@ class School extends Component {
     })
   }
 
-  logout () {
+  logout() {
     base.unauth()
     this.setState({
       uid: null
     })
   }
-  renderLogin () {
-    return (
-      <div>
+  renderLogin() {
+      return (
+        <div>
         <Navbar />
         <h2>{this.state.loginText}</h2>
         <form className='login' onSubmit={this.authenticate}>
@@ -124,10 +127,10 @@ class School extends Component {
           <button type='submit' className='signin'>Submit</button>
         </form>
       </div>
-    )
-  }
+      )
+    }
     // Will consider adding updateStudent if necessary
-  render () {
+  render() {
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
     }
@@ -137,7 +140,6 @@ class School extends Component {
           <Navbar logout={this.logout} showLogout />
           <h2>Unauthenticated</h2>
         </div>
-
       )
     }
     return (
