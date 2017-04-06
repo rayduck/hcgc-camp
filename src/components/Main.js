@@ -53,9 +53,7 @@ class Main extends Component {
           </section>
           <BackToTop />
           <section className='carousel' id='carousel'>
-            <div className='reel'>
             <GalleryScroll />
-          </div>
           </section>
           
           <div className='wrapper style2'>
