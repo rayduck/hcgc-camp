@@ -2304,22 +2304,25 @@ header .icon.circled {
 	margin: 5px 5px 0 0;
 }
 
-.student-form {
+.panel-inputs {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.student-form textarea {
+.panel-inputs textarea {
 	flex: 4;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.student-form button {
+.panel-inputs button {
 	flex: 1;
 }
 
+.full-btn {
+	width: 100%;
+}
 
 /* Nav */
 

@@ -9,7 +9,7 @@ import Student from './Student'
 import Navbar from './Navbar'
 
 class School extends Component {
-  constructor() {
+  constructor () {
     super()
       // bind some stuff
     this.addStudent = this.addStudent.bind(this)
@@ -30,25 +30,25 @@ class School extends Component {
       loginText: 'Please Login'
     }
   }
-  componentWillMount() {
+  componentWillMount () {
     // Sync state with the specific school db
     this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
       context: this,
       state: 'students'
     })
   }
-  componentDidMount() {
+  componentDidMount () {
     base.onAuth((user) => {
-        if (user) {
-          console.log(user);
-          this.authHandler(null, user)
-        }
-      }) // Auth user under the hood if already logged in
+      if (user) {
+        console.log(user)
+        this.authHandler(null, user)
+      }
+    }) // Auth user under the hood if already logged in
   }
-  componentWillUnmount() {
+  componentWillUnmount () {
     base.removeBinding(this.ref)
   }
-  addStudent(student) {
+  addStudent (student) {
     // update state
     const students = {...this.state.students
     }
@@ -59,17 +59,17 @@ class School extends Component {
       students
     })
   }
-  handleEmailChange(e) {
+  handleEmailChange (e) {
     this.setState({
       email: e.target.value
     })
   }
-  handlePasswordChange(e) {
+  handlePasswordChange (e) {
     this.setState({
       password: e.target.value
     })
   }
-  removeStudent(studentId) {
+  removeStudent (studentId) {
     const students = {...this.state.students
     }
     students[studentId] = null
@@ -77,14 +77,14 @@ class School extends Component {
       students
     })
   }
-  authenticate(event) {
+  authenticate (event) {
     event.preventDefault()
     base.authWithPassword({
       email: this.state.email,
       password: this.state.password
     }, this.authHandler)
   }
-  authHandler(err, authData) {
+  authHandler (err, authData) {
     if (err) {
       this.setState({
         loginText: 'Wrong Username or Password. Please try again!'
@@ -110,27 +110,27 @@ class School extends Component {
     })
   }
 
-  logout() {
+  logout () {
     base.unauth()
     this.setState({
       uid: null
     })
   }
-  renderLogin() {
-      return (
-        <div>
+  renderLogin () {
+    return (
+      <div>
         <Navbar />
         <h2>{this.state.loginText}</h2>
         <form className='login' onSubmit={this.authenticate}>
           <input type='text' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
           <input type='password' required placeholder='Password' value={this.state.password} onChange={this.handlePasswordChange} />
-          <button type='submit' className='signin'>Submit</button>
+          <button type='submit' className='full-btn'>Submit</button>
         </form>
       </div>
-      )
-    }
+    )
+  }
     // Will consider adding updateStudent if necessary
-  render() {
+  render () {
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
     }
@@ -145,9 +145,9 @@ class School extends Component {
     return (
       <div className='School'>
         <Navbar logout={this.logout} showLogout />
-        <h2 className="title">Add participants for {this.props.match.params.schoolId} :</h2>
+        <h2 className='title'>Add participants for {this.props.match.params.schoolId} :</h2>
         <ul className='list-of-students'>
-            <li className="student-list-header">
+          <li className='student-list-header'>
             <div className='student-1'>
               Name
             </div>
@@ -160,8 +160,8 @@ class School extends Component {
             <div className='student-1'>
               Dietary Requirements
             </div>
-            <div className='student-2'></div>
-            </li>
+            <div className='student-2' />
+          </li>
           { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
         <Panel addStudent={this.addStudent} />
