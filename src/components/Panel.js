@@ -4,11 +4,11 @@ import React, {
 from 'react'
 
 class Panel extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  addStudent (event) {
+  addStudent(event) {
     event.preventDefault()
     const student = {
       name: this.name.value.split('\n'),
@@ -16,6 +16,7 @@ class Panel extends Component {
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
+    this.panelForm.reset()
     for (let i in student.name) {
       this.props.addStudent({
         name: student.name[i],
@@ -24,17 +25,16 @@ class Panel extends Component {
         diet: student.diet[i]
       })
     }
-    this.panelForm.reset()
   }
-  render () {
+  render() {
     return (
       <div className='panel' onSubmit={(e) => this.addStudent(e)}>
         <form ref={(input) => this.panelForm = input} action='' className='student-form'>
           <div className='panel-inputs'>
-            <textarea rows='8' ref={(input) => this.name = input} type='text' placeholder='Student Name List' required />
-            <textarea rows='8' ref={(input) => this.age = input} type='number' placeholder='Age' required />
-            <textarea rows='8' ref={(input) => this.contact = input} type='number' placeholder='Contact Number' required />
-            <textarea rows='8' ref={(input) => this.diet = input} type='text' placeholder='Dietary Requirements (Put "-" if none)' required />
+            <textarea rows='5' ref={(input) => this.name = input} type='text' placeholder='Student Name List' required />
+            <textarea rows='5' ref={(input) => this.age = input} type='number' placeholder='Age' required />
+            <textarea rows='5' ref={(input) => this.contact = input} type='number' placeholder='Contact Number' required />
+            <textarea rows='5' ref={(input) => this.diet = input} type='text' placeholder='Dietary Requirements (Put "-" if none)' required />
           </div>
           <button type='submit' className='full-btn' >Add</button>
         </form>

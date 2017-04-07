@@ -3,10 +3,19 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+}
+from 'react-router-dom'
 
-const Navbar = ({logout, showLogout}) => {
-  const logoutBtn = <button className='logout-btn' onClick={logout}>logout</button>
+const Navbar = ({
+  logout,
+  showLogout,
+  changePasswd
+}) => {
+  const logoutBtn =
+    (<div>
+  <button className='logout-btn' onClick={changePasswd}>Change Password</button>
+  <button className='logout-btn' onClick={logout}>logout</button>
+  </div>)
   return (
     <div className='fixed-nav-bar'>
       <div className='pull-left'><Link to='/'>Green Camp 2017</Link></div>

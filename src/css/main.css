@@ -2222,7 +2222,6 @@ header .icon.circled {
 .fixed-nav-bar {
 	top: 0;
 	left: 0;
-	z-index: 9999;
 	width: 100%;
 	height: 50px;
 	background-color: #0288d1;
@@ -2239,6 +2238,16 @@ header .icon.circled {
 	margin: 5px 5px 0 0;
 }
 
+.panel {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width:100%;
+}
+
+.School {
+	padding: 0 0 200px 0;
+}
 .panel-inputs {
 	display: flex;
 	flex-direction: row;
@@ -2247,12 +2256,9 @@ header .icon.circled {
 
 .panel-inputs textarea {
 	flex: 4;
-	overflow: hidden;
+	overflow: visible;
 	text-overflow: ellipsis;
-}
-
-.panel-inputs button {
-	flex: 1;
+	max-height: 200px;
 }
 
 .full-btn {
@@ -2261,6 +2267,10 @@ header .icon.circled {
 
 .typeahead-selector {
 	text-align: center;
+}
+
+.logout-btn {
+	margin-left: 8px;
 }
 
 /* Nav */

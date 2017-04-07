@@ -8,10 +8,6 @@ import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
 
-/*var imgIB = require('../images/IB.jpg')
-var imgAR = require('../images/AR.jpg')
-var imgDIY = require('../images/DIY.jpg')
-var imgMovie = require('../images/Movie.jpg')*/
 var imgGroup = require('../images/Group.jpg')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
