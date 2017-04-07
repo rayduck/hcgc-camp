@@ -1,7 +1,6 @@
 // This component is the main controller for adding students etc
 
-import React, {Component}
-from 'react'
+import React, { Component } from 'react'
 import base from '../base'
 
 import Panel from './Panel'

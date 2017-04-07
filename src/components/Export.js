@@ -40,7 +40,7 @@ class Export extends Component {
         </form>
         <p id='json-output'>{this.state.JSONOutput}</p>
         <button data-clipboard-target='#json-output' id='json-btn'>Copy</button>
-        <h5>Convert the converted JSON data <a href='https://konklone.io/json/' target='_blank'>here</a></h5>
+        <h5 className='JSON-link'>Convert the converted JSON data <a href='https://konklone.io/json/' target='_blank'>here</a></h5>
       </div>
     )
   }
