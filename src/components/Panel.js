@@ -6,14 +6,10 @@ from 'react'
 class Panel extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      error: ''
-    }
   }
 
   addStudent (event) {
     event.preventDefault()
-    var validation = /[^0-9]+/g
     const student = {
       name: this.name.value.split('\n'),
       age: this.age.value.split('\n'),
@@ -21,19 +17,12 @@ class Panel extends Component {
       diet: this.diet.value.split('\n')
     }
     for (let i in student.name) {
-      if (validation.test(student.age[i]) === true || validation.test(student.contact[i]) === true) {
-        this.setState({
-          error: 'Some input are ignored due to invalid characters, especially number inputs'
-        })
-        continue
-      } else {
-        this.props.addStudent({
-          name: student.name[i],
-          age: student.age[i],
-          contact: student.contact[i],
-          diet: student.diet[i]
-        })
-      }
+      this.props.addStudent({
+        name: student.name[i],
+        age: student.age[i],
+        contact: student.contact[i],
+        diet: student.diet[i]
+      })
     }
     this.panelForm.reset()
   }
@@ -49,7 +38,6 @@ class Panel extends Component {
           </div>
           <button type='submit' className='full-btn' >Add</button>
         </form>
-        <h1 className='title'>{this.state.error}</h1>
       </div>
     )
   }

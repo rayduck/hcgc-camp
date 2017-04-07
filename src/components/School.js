@@ -25,22 +25,25 @@ class School extends Component {
     this.state = {
       students: {},
       uid: '',
+      teacherName: '',
+      teacherContact: '',
       email: '',
-      password: '',
-      loginText: 'Please Login'
+      schoolCode: '',
+      loginText: 'Please Login',
+      loading: true
     }
   }
   componentWillMount () {
     // Sync state with the specific school db
     this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
       context: this,
-      state: 'students'
+      state: 'students',
+      then: () => { this.setState({loading: false}) }
     })
   }
   componentDidMount () {
     base.onAuth((user) => {
       if (user) {
-        console.log(user)
         this.authHandler(null, user)
       }
     }) // Auth user under the hood if already logged in
@@ -66,7 +69,17 @@ class School extends Component {
   }
   handlePasswordChange (e) {
     this.setState({
-      password: e.target.value
+      schoolCode: e.target.value
+    })
+  }
+  handleTeacherNameChange (e) {
+    this.setState({
+      teacherName: e.target.value
+    })
+  }
+  handleTeacherContactChange (e) {
+    this.setState({
+      teacherContact: e.target.value
     })
   }
   removeStudent (studentId) {
@@ -81,13 +94,13 @@ class School extends Component {
     event.preventDefault()
     base.authWithPassword({
       email: this.state.email,
-      password: this.state.password
+      password: this.state.schoolCode
     }, this.authHandler)
   }
   authHandler (err, authData) {
     if (err) {
       this.setState({
-        loginText: 'Wrong Username or Password. Please try again!'
+        loginText: 'Wrong username or school code. Please try again!'
       })
       return
     }
@@ -99,7 +112,11 @@ class School extends Component {
       // claim ownership for first time
       if (!data.owner) {
         schoolRef.set({
-          owner: authData.uid
+          owner: authData.uid,
+          schoolDetails: {
+            teacherName: this.state.teacherName,
+            teacherContact: this.state.teacherContact
+          }
         })
       }
 
@@ -120,10 +137,12 @@ class School extends Component {
     return (
       <div>
         <Navbar />
-        <h2>{this.state.loginText}</h2>
+        <h2 className='title'>Please Enter Your Details</h2>
         <form className='login' onSubmit={this.authenticate}>
+          <input type='text'required placeholder='Name of Main teacher In-Charge' ref={(input) => { this.nameInput = input }} />
+          <input type='number'required placeholder='Contact Number' ref={(input) => { this.contactInput = input }} />
           <input type='text' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
-          <input type='password' required placeholder='Password' value={this.state.password} onChange={this.handlePasswordChange} />
+          <input type='password' required placeholder='schoolCode' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
           <button type='submit' className='full-btn'>Submit</button>
         </form>
       </div>
@@ -131,6 +150,9 @@ class School extends Component {
   }
     // Will consider adding updateStudent if necessary
   render () {
+    if (this.state.loading) {
+      return <div>Loading</div>
+    }
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
     }
