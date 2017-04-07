@@ -1855,7 +1855,8 @@ form textarea {
 	display: block;
 	border: 0;
 	background: #fafafa;
-	width: 100%;
+	margin: 0 auto;
+	width: 90%;
 	border-radius: 0.5em;
 	border: solid 1px #E5E5E5;
 	padding: 1em;
@@ -2212,11 +2213,17 @@ header .icon.circled {
 }
 
 .title {
-	margin-left: 20px;
+	margin-left: 30px;
 }
 
 .delete {
 	cursor: pointer;
+}
+
+.middle {
+	position: absolute;
+	top: 45%;
+	left: 45%;
 }
 
 .fixed-nav-bar {
@@ -2242,12 +2249,13 @@ header .icon.circled {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	width:100%;
+	width: 100%;
 }
 
 .School {
 	padding: 0 0 200px 0;
 }
+
 .panel-inputs {
 	display: flex;
 	flex-direction: row;
@@ -2262,7 +2270,8 @@ header .icon.circled {
 }
 
 .full-btn {
-	width: 100%;
+	width: 90%;
+	left: 5%;
 }
 
 .typeahead-selector {
@@ -2272,6 +2281,7 @@ header .icon.circled {
 .logout-btn {
 	margin-left: 8px;
 }
+
 
 /* Nav */
 

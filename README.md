@@ -8,7 +8,8 @@
 - [x] Setup authentication with firebase
 - [x] Main component (info about the camp)
 - [x] Students component
-- [ ] Admin component
-- [ ] Export to JSON/CSV/EXCEL
+- [x] Admin component
+- [x] Export to JSON/CSV/EXCEL
+- [x] Styling (preferably with flexbox)
 - [ ] Add user instructions
-- [ ] Styling (preferably with flexbox)
+- [ ] Functionalities

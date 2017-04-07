@@ -190,7 +190,7 @@ class School extends Component {
     // Will consider adding updateStudent if necessary
   render () {
     if (this.state.loading) {
-      return <div>Loading</div>
+      return <div><i className='middle fa fa-spinner fa-pulse fa-5x fa-fw'></i></div>
     }
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
@@ -199,7 +199,7 @@ class School extends Component {
       return (
         <div>
           <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout />
-          <h2>Unauthenticated</h2>
+          <h2 className='title'>Unauthenticated</h2>
         </div>
       )
     }
