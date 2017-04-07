@@ -18,22 +18,31 @@ class School extends Component {
     this.authHandler = this.authHandler.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.handleTeacherNameChange = this.handleTeacherNameChange.bind(this)
+    this.handleTeacherContactChange = this.handleTeacherContactChange.bind(this)
     this.logout = this.logout.bind(this)
+    this.renderLogin = this.renderLogin.bind(this)
 
     // initialize state
     this.state = {
-      students: {},
-      uid: '',
+      loginText: 'Please Login',
       teacherName: '',
       teacherContact: '',
       email: '',
       schoolCode: '',
-      loginText: 'Please Login',
+      firstLogin: true,
       loading: true
     }
   }
   componentWillMount () {
     // Sync state with the specific school db
+    base.fetch(`${this.props.match.params.schoolId}/owner`, {
+      context: this
+    }).then(data => {
+      console.log(Object.keys(data).length)
+      if (Object.keys(data).length > 0) { this.setState({firstLogin: false}) }
+    })
+
     this.ref = base.syncState(`${this.props.match.params.schoolId}/students`, {
       context: this,
       state: 'students',
@@ -133,14 +142,24 @@ class School extends Component {
     })
   }
   renderLogin () {
+    const TeacherDetails = (
+      <div>
+        <h2 className='title'>Please Enter Your Details</h2>
+        <input type='text' required placeholder='Name of Main teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
+        <input type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleTeacherContactChange} />
+      </div>
+    )
+    const LoginMessage = (
+      <div>
+        <h2>{this.state.loginText}</h2>
+      </div>
+    )
     return (
       <div>
         <Navbar />
-        <h2 className='title'>Please Enter Your Details</h2>
         <form className='login' onSubmit={this.authenticate}>
-          <input type='text'required placeholder='Name of Main teacher In-Charge' ref={(input) => { this.nameInput = input }} />
-          <input type='number'required placeholder='Contact Number' ref={(input) => { this.contactInput = input }} />
-          <input type='text' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
+          {this.state.firstLogin ? TeacherDetails : LoginMessage}
+          <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
           <input type='password' required placeholder='schoolCode' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
           <button type='submit' className='full-btn'>Submit</button>
         </form>
