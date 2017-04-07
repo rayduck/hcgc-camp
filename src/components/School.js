@@ -36,7 +36,8 @@ class School extends Component {
       schoolCode: '',
       ownerIds: '',
       firstLogin: true,
-      loading: true
+      loading: true,
+      sniperino: false
     }
   }
   componentWillMount () {
@@ -120,27 +121,46 @@ class School extends Component {
       })
       return
     }
-    const schoolRef = base.database().ref(this.props.match.params.schoolId)
+
+    // check if sniperino
+    base.fetch('/', { context: this})
+      .then(data => {
+        const ownerIds = []
+        for (let school of Object.keys(data)) {
+          ownerIds.push(data[school].owner)
+        }
+        this.setState({ownerIds})
+      })
+      .then(() => {
+        const schoolRef = base.database().ref(this.props.match.params.schoolId)
       // query fb once for school data
-    schoolRef.once('value', (snapshot) => {
-      const data = snapshot.val() || {}
+        schoolRef.once('value', (snapshot) => {
+          const data = snapshot.val() || {}
+          let hasSchool = false
+          for (let owner of this.state.ownerIds) {
+            if (owner === authData.uid) hasSchool = true
+          }
+
+          const sniperino = !data.owner && hasSchool
 
       // claim ownership for first time
-      if (!data.owner) {
-        schoolRef.set({
-          owner: authData.uid,
-          schoolDetails: {
-            teacherName: this.state.teacherName,
-            teacherContact: this.state.teacherContact
+          if (!data.owner && !hasSchool) {
+            schoolRef.set({
+              owner: authData.uid,
+              schoolDetails: {
+                teacherName: this.state.teacherName,
+                teacherContact: this.state.teacherContact
+              }
+            })
           }
-        })
-      }
 
-      this.setState({
-        uid: authData.uid,
-        owner: data.owner || authData.uid
+          this.setState({
+            uid: authData.uid,
+            owner: data.owner || authData.uid,
+            sniperino
+          })
+        })
       })
-    })
   }
 
   logout () {
@@ -194,7 +214,7 @@ class School extends Component {
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
     }
-    if (this.state.uid !== this.state.owner) {
+    if (this.state.uid !== this.state.owner || this.state.sniperino) {
       return (
         <div>
           <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout />
