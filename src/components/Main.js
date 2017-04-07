@@ -7,13 +7,34 @@ import '../css/font-awesome.min.css'
 import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
+import base from '../base'
 
 var imgGroup = require('../images/Group.jpg')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  render() {
+  constructor () {
+    super()
+    this.state = {
+      placesLeft: '...'
+    }
+  }
+  componentWillMount () {
+    base.fetch('/', { context: this })
+      .then(data => {
+        console.log(data)
+        const maxStudents = 420
+        let studentCount = 0
+        for (let school of Object.keys(data)) {
+          if (data[school].students) {
+            studentCount += Object.keys(data[school].students).length
+          }
+        }
+        this.setState({placesLeft: maxStudents - studentCount})
+      })
+  }
+  render () {
     return (
       <div className='Main'>
         <div id='page-wrapper'>
@@ -22,7 +43,7 @@ class Main extends Component {
               <header>
                 <h1 id='logo'>Primary School Green Camp</h1>
                 <hr />
-                <p>June 1, 2017</p>
+                <p>June 1, 2017 | {this.state.placesLeft} places available</p>
               </header>
               <footer>
                 <a href='/join' className='button circled scrolly'>Register</a>
@@ -51,7 +72,7 @@ class Main extends Component {
           <section className='carousel' id='carousel'>
             <GalleryScroll />
           </section>
-          
+
           <div className='wrapper style2'>
 
             <article id='main' className='container special'>
@@ -68,7 +89,7 @@ class Main extends Component {
               as environmentally-friendly as we should be.
               Thankfully, this problem can easily be rectified by making adjustments to our daily habits.
               <br />
-							<br />
+                <br />
 							Organised by Hwa Chong Green Council, we wish to expose primary school students to the various environmental issues that we face, and educate them on what they can do to make a change. Join the camp today for a fulfilling experience that you will never forget! See you there!
 						</p>
               <footer>
@@ -76,7 +97,7 @@ class Main extends Component {
               </footer>
             </article>
 
-        </div>
+          </div>
 
           <div className='map'>
             <iframe width='100%' height='100%' frameBorder='0' scrolling='no' marginHeight='0' marginWidth='0' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7500027232454!2d103.80099821475402!3d1.3259310990329338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da10a098cda40f%3A0x1765c81afbc57c06!2sHwa+Chong+Institution!5e0!3m2!1sen!2ssg!4v1490495954480' />
@@ -124,5 +145,4 @@ class Main extends Component {
     )
   }
 }
-
 export default Main
