@@ -168,6 +168,7 @@ class School extends Component {
     this.setState({
       uid: null
     })
+    this.props.history.push('/')
   }
 
   changePasswd () {
@@ -179,6 +180,11 @@ class School extends Component {
         })
       }
     })
+    base.unauth()
+    this.setState({
+      uid: null
+    })
+    this.props.history.push('/')
   }
 
   renderLogin () {
@@ -209,7 +215,7 @@ class School extends Component {
     // Will consider adding updateStudent if necessary
   render () {
     if (this.state.loading) {
-      return <div><i className='middle fa fa-spinner fa-pulse fa-5x fa-fw'></i></div>
+      return <div><i className='middle fa fa-spinner fa-pulse fa-5x fa-fw' /></div>
     }
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>
