@@ -151,13 +151,12 @@ class School extends Component {
   }
 
   changePasswd () {
-    base.onAuth(function (user) {
+    base.onAuth((user) => {
+      console.log(user)
       if (user) {
         base.resetPassword({
           email: user.email
         })
-      } else {
-
       }
     })
   }

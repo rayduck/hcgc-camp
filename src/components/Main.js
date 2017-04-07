@@ -24,7 +24,7 @@ class Main extends Component {
     base.fetch('/', { context: this })
       .then(data => {
         console.log(data)
-        const maxStudents = 420
+        const maxStudents = 200
         let studentCount = 0
         for (let school of Object.keys(data)) {
           if (data[school].students) {

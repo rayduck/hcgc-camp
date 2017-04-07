@@ -13,9 +13,9 @@ const Navbar = ({
 }) => {
   const logoutBtn =
     (<div>
-  <button className='logout-btn' onClick={changePasswd}>Change Password</button>
-  <button className='logout-btn' onClick={logout}>logout</button>
-  </div>)
+      <button className='logout-btn' onClick={changePasswd}>Change Password</button>
+      <button className='logout-btn' onClick={logout}>logout</button>
+    </div>)
   return (
     <div className='fixed-nav-bar'>
       <div className='pull-left'><Link to='/'>Green Camp 2017</Link></div>
