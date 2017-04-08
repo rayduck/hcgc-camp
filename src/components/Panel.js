@@ -33,7 +33,7 @@ class Panel extends Component {
           <div className='panel-inputs'>
             <textarea rows='5' ref={(input) => this.name = input} type='text' placeholder='Student Name List' required />
             <textarea rows='5' ref={(input) => this.age = input} type='number' placeholder='Age' required />
-            <textarea rows='5' ref={(input) => this.contact = input} type='number' placeholder='Contact Number' required />
+            <textarea rows='5' ref={(input) => this.contact = input} type='number' placeholder='Parents Contact Number' required />
             <textarea rows='5' ref={(input) => this.diet = input} type='text' placeholder='Dietary Requirements (Put "-" if none)' required />
           </div>
           <button type='submit' className='full-btn' >Add</button>

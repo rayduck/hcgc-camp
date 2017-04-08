@@ -2,7 +2,7 @@ import React, {
   Component
 }
 from 'react'
-import '../css/main.css'
+import '../css/main.min.css'
 import '../css/font-awesome.min.css'
 import Clock from './Clock'
 import BackToTop from './BackToTop'
