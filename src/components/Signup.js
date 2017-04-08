@@ -24,9 +24,10 @@ class Signup extends Component {
   signupHandler (err) {
     if (err) console.log(err)
     this.setState({
-      signupText: 'Success! Redirecting.....'
+      signupText: 'Success! Redirecting to Login'
     })
-    this.props.history.push('/join')
+    base.unauth()
+    setTimeout(() => { this.props.history.push('/join') }, 1000)
   }
   handleEmailChange (e) {
     this.setState({
