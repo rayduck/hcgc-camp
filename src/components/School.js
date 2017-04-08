@@ -53,15 +53,15 @@ class School extends Component {
       context: this,
       state: 'students',
       then: () => {
-        this.setState({
-          loading: false
-        })
+        const {loading} = this.state
+        if (loading !== 'pending') this.setState({ loading: false})
       }
     })
   }
   componentDidMount () {
     base.onAuth((user) => {
       if (user) {
+        this.setState({ loading: 'pending'})
         this.authHandler(null, user)
       }
     }) // Auth user under the hood if already logged in
@@ -172,7 +172,8 @@ class School extends Component {
           this.setState({
             uid: authData.uid,
             owner: data.owner || authData.uid,
-            sniperino
+            sniperino,
+            loading: false
           })
         })
       })
@@ -263,7 +264,7 @@ class School extends Component {
             </div>
             <div className='student-2' />
           </li>
-          { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
+          { Object.keys(this.state.students).reverse().map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
         {this.state.placesLeft > 0 ? <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} /> : <div /> }
 
