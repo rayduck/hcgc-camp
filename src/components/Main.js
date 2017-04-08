@@ -8,7 +8,8 @@ import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
 
-var imgGroup = require('../images/Group.jpg')
+const imgGroup = require('../images/Group.jpg')
+const logo = require('../images/logo.png')
 
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
@@ -50,6 +51,9 @@ class Main extends Component {
               </h2>
               <Clock deadline={deadline} />
             </header>
+            <div className='logo-container'>
+              <div><img src={logo} alt='' width='100%' /></div>
+            </div>
           </section>
           <BackToTop />
           <section className='carousel' id='carousel'>

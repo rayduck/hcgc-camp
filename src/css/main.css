@@ -2947,3 +2947,8 @@ a.animated-button.login-btn:before {
 .main-header header>p {
 	font-size: 5px;
 }
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+}
