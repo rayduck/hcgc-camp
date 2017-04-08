@@ -2212,6 +2212,10 @@ header .icon.circled {
 	flex-direction: row;
 }
 
+.student-form {
+	background-color: white;
+}
+
 .title {
 	margin-left: 30px;
 }

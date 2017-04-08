@@ -11,8 +11,8 @@ import Student from './Student'
 import Navbar from './Navbar'
 
 class School extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
       // bind some stuff
     this.addStudent = this.addStudent.bind(this)
     this.removeStudent = this.removeStudent.bind(this)
@@ -37,7 +37,8 @@ class School extends Component {
       ownerIds: '',
       firstLogin: true,
       loading: true,
-      sniperino: false
+      sniperino: false,
+      placesLeft: this.props.placesLeft
     }
   }
   componentWillMount () {
@@ -70,13 +71,25 @@ class School extends Component {
   }
   addStudent (student) {
     // update state
-    const students = {...this.state.students
+    const students = {...this.state.students}
+    let placesLeft = this.state.placesLeft
+    const numOfStudent = student.name.length
+    const studentsToAdd = numOfStudent < placesLeft ? numOfStudent : placesLeft
+    for (let i = 0; i < studentsToAdd; i++) {
+      const timestamp = Date.now() // using timestamp to generate unique students
+      const newStudent = {
+        name: student.name[i],
+        age: student.age[i],
+        contact: student.contact[i],
+        diet: student.diet[i]
+      }
+      students[`student-${timestamp}`] = newStudent
+      placesLeft -= 1
     }
-    const timestamp = Date.now() // using timestamp to generate unique students
-    students[`student-${timestamp}`] = student
       // set state
     this.setState({
-      students
+      students,
+      placesLeft
     })
   }
   handleEmailChange (e) {
@@ -103,8 +116,10 @@ class School extends Component {
     const students = {...this.state.students
     }
     students[studentId] = null
+    const placesLeft = this.state.placesLeft + 1
     this.setState({
-      students
+      students,
+      placesLeft
     })
   }
   authenticate (event) {
@@ -201,7 +216,7 @@ class School extends Component {
       )
     return (
       <div>
-        <Navbar />
+        <Navbar placesLeft={this.state.placesLeft} />
         <form className='login' onSubmit={this.authenticate}>
           {this.state.firstLogin ? TeacherDetails : LoginMessage}
           <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
@@ -222,14 +237,14 @@ class School extends Component {
     if (this.state.uid !== this.state.owner || this.state.sniperino) {
       return (
         <div>
-          <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout />
+          <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout placesLeft={this.state.placesLeft} />
           <h2 className='title'>Unauthenticated</h2>
         </div>
       )
     }
     return (
       <div className='School'>
-        <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout />
+        <Navbar logout={this.logout} changePasswd={this.changePasswd} showLogout placesLeft={this.state.placesLeft} />
         <h2 className='title'>Add participants for {this.props.match.params.schoolId} :</h2>
         <ul className='list-of-students'>
           <li className='student-list-header'>
@@ -249,7 +264,8 @@ class School extends Component {
           </li>
           { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
-        <Panel addStudent={this.addStudent} />
+        {this.state.placesLeft > 0 ? <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} /> : <h1> Places full </h1>}
+
       </div>
     )
   }

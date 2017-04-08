@@ -14,31 +14,6 @@ var imgGroup = require('../images/Group.jpg')
 const deadline = 'June 1 2017 08:00:00 UTC+0800'
 
 class Main extends Component {
-  constructor () {
-    super()
-    this.state = {
-      placesLeft: '... places available'
-    }
-  }
-  componentWillMount () {
-    base.fetch('/', { context: this })
-      .then(data => {
-        console.log(data)
-        const maxStudents = 200
-        let studentCount = 0
-        for (let school of Object.keys(data)) {
-          if (data[school].students) {
-            studentCount += Object.keys(data[school].students).length
-          }
-        }
-        if (maxStudents - studentCount > 0) {
-        this.setState({placesLeft: maxStudents - studentCount + ' places available'})
-        }
-        else {
-          this.setState({placesLeft: 'Registration closed.'})
-        }
-      })
-  }
   render () {
     return (
       <div className='Main'>
@@ -46,9 +21,9 @@ class Main extends Component {
           <div id='header'>
             <div className='inner'>
               <header>
-                <h1 id='logo'>Primary School Green Camp</h1>
+                <h1 id='logo'>Primary School Green Camp </h1>
                 <hr />
-                <p>June 1, 2017 | {this.state.placesLeft}</p>
+                <p>June 1, 2017 | {this.props.placesLeft > 0 || this.props.placesLeft == '...' ? `${this.props.placesLeft} places remain` : 'Fully registered'}</p>
               </header>
               <footer>
                 <a href='/join' className='button circled scrolly'>Register</a>

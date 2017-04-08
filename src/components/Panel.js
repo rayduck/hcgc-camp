@@ -4,11 +4,12 @@ import React, {
 from 'react'
 
 class Panel extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
+    this.addStudent = this.addStudent.bind(this)
   }
 
-  addStudent(event) {
+  addStudent (event) {
     event.preventDefault()
     const student = {
       name: this.name.value.split('\n'),
@@ -16,17 +17,21 @@ class Panel extends Component {
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
+    this.props.addStudent(student)
     this.panelForm.reset()
-    for (let i in student.name) {
-      this.props.addStudent({
-        name: student.name[i],
-        age: student.age[i],
-        contact: student.contact[i],
-        diet: student.diet[i]
-      })
-    }
+    /*
+    for (let i = 0; i < (student.name.length < this.props.placesLeft ? student.name.length : this.props.placesLeft); i++) {
+      if (i < this.props.placesLeft) {
+        this.props.addStudent({
+          name: student.name[i],
+          age: student.age[i],
+          contact: student.contact[i],
+          diet: student.diet[i]
+        })
+      }
+    } */
   }
-  render() {
+  render () {
     return (
       <div className='panel' onSubmit={(e) => this.addStudent(e)}>
         <form ref={(input) => this.panelForm = input} action='' className='student-form'>

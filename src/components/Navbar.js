@@ -9,7 +9,8 @@ from 'react-router-dom'
 const Navbar = ({
   logout,
   showLogout,
-  changePasswd
+  changePasswd,
+  placesLeft
 }) => {
   const logoutBtn =
     (<div>
@@ -18,7 +19,7 @@ const Navbar = ({
     </div>)
   return (
     <div className='fixed-nav-bar'>
-      <div className='pull-left'><Link to='/'>Green Camp 2017</Link></div>
+      <div className='pull-left'><Link to='/'>Green Camp 2017</Link> | {placesLeft > 0 ? `${placesLeft} places remain` : 'Fully registered'}</div>
       <div className='pull-right'>
         {showLogout ? logoutBtn : <div /> }
       </div>
