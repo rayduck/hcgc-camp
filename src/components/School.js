@@ -76,14 +76,14 @@ class School extends Component {
     const numOfStudent = student.name.length
     const studentsToAdd = numOfStudent < placesLeft ? numOfStudent : placesLeft
     for (let i = 0; i < studentsToAdd; i++) {
-      const timestamp = Date.now() // using timestamp to generate unique students
-      const newStudent = {
+      let timestamp = Date.now() // using timestamp to generate unique students
+      let newStudent = {
         name: student.name[i],
         age: student.age[i],
         contact: student.contact[i],
         diet: student.diet[i]
       }
-      students[`student-${timestamp}`] = newStudent
+      students[`student-${timestamp}${i}`] = newStudent
       placesLeft -= 1
     }
       // set state
