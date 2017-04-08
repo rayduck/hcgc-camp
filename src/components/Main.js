@@ -114,7 +114,6 @@ class Main extends Component {
                   <div className='copyright'>
                     <ul className='menu'>
                       <li>&copy; HCGC | R3:C0D3. All rights reserved.</li>
-                      <li>Design: <a href='http://html5up.net'>HTML5 UP</a></li>
                     </ul>
                   </div>
 
