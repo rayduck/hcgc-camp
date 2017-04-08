@@ -213,7 +213,7 @@ class School extends Component {
       )
     const LoginMessage = (
       <div>
-        <h2>{this.state.wrongPassword ? 'Wrong username or school code. Please try again!' : 'Please Login' }</h2>
+        <h2>{this.state.wrongPassword ? 'Wrong email or password. Please try again!' : 'Please Login' }</h2>
       </div>
       )
     return (
@@ -222,7 +222,7 @@ class School extends Component {
         <form className='login' onSubmit={this.authenticate}>
           {this.state.firstLogin ? TeacherDetails : LoginMessage}
           <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
-          <input type='password' required placeholder='schoolCode' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
+          <input type='password' required placeholder='Password' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
           <button type='submit' className='full-btn'>Submit</button>
         </form>
       </div>

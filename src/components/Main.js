@@ -19,14 +19,17 @@ class Main extends Component {
         <div id='page-wrapper'>
           <div id='header'>
             <div className='inner'>
-              <header>
+              <header className='main-header'>
                 <h1 id='logo'>Primary School Green Camp </h1>
                 <hr />
                 <p>June 1, 2017 | {this.props.placesLeft > 0 || this.props.placesLeft === '...' ? `${this.props.placesLeft} places remain` : 'Fully registered'}</p>
               </header>
-              <footer>
-                <a href='/join' className='button circled scrolly'>Register</a>
-              </footer>
+              <div>
+                <div className='button-wrap'>
+                  <a href='/signup' className='animated-button signup-btn'>Sign up</a>
+                  <a href='/join' className='animated-button login-btn'>Login</a>
+                </div>
+              </div>
             </div>
 
             <nav id='nav'>
@@ -34,7 +37,8 @@ class Main extends Component {
                 <li><a href='#'>Home</a></li>
                 <li><a href='#carousel'>Activities</a></li>
                 <li><a href='#about'>About</a></li>
-                <li><a href='/join'>Register</a></li>
+                <li><a href='/signup'>Signup</a></li>
+                <li><a href='/join'>Login</a></li>
               </ul>
             </nav>
 

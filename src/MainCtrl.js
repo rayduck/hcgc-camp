@@ -5,6 +5,7 @@ import SchoolPicker from './components/SchoolPicker'
 import School from './components/School'
 import Main from './components/Main'
 import Export from './components/Export'
+import Signup from './components/Signup'
 import { getPlacesLeft } from './utils'
 
 class MainCtrl extends Component {
@@ -26,6 +27,7 @@ class MainCtrl extends Component {
             <Route path='/join' component={SchoolPicker} />
             <Route path='/school/:schoolId' component={({...rest}) => (<School placesLeft={this.state.placesLeft} {...rest} />)} />
             <Route path='/export' component={Export} />
+            <Route path='/signup' component={Signup} />
           </div>
         </Router>
       </div>

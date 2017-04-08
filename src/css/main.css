@@ -7,6 +7,7 @@
 	font-weight: 100;
 	text-align: center;
 	font-size: 30px;
+	margin-top: 20px;
 }
 
 #clockdiv>div {
@@ -2308,6 +2309,7 @@ header .icon.circled {
 	padding: 1.5em 0 1.5em 0;
 	z-index: 1;
 	overflow: hidden;
+	background-color: rgba(26, 26, 26, 0.1)
 }
 
 #nav>ul {
@@ -2466,10 +2468,12 @@ header .icon.circled {
 }
 
 .carousel .reel {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
 	white-space: nowrap;
 	position: relative;
 	padding: 0 2em 0 2em;
-	overflow-x: scroll;
 }
 
 .carousel article {
@@ -2791,4 +2795,147 @@ header .icon.circled {
 	.carousel article .image {
 		margin-bottom: 2em;
 	}
+}
+
+/* Frontpage's buttons */
+.button-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	width: 40%;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:26px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:26px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+a.animated-button.signup-btn {
+	color: #0b8bcb;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 3px solid #0b8bcb;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	background-color: rgba(247, 247, 247, 0.6);
+}
+a.animated-button.signup-btn:hover {
+	color: #000 !important;
+	background-color: transparent;
+	text-shadow: none;
+}
+a.animated-button.signup-btn:hover:before {
+	bottom: 0%;
+	top: auto;
+	height: 100%;
+}
+a.animated-button.signup-btn:before {
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 0px;
+	width: 100%;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: #0b8bcb;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+a.animated-button.login-btn {
+	color: #D24D57;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 3px solid #D24D57;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	background-color: rgba(247, 247, 247, 0.6);
+}
+a.animated-button.login-btn:hover {
+	color: #000 !important;
+	background-color: transparent;
+	text-shadow: ntwo;
+}
+a.animated-button.login-btn:hover:before {
+	top: 0%;
+	bottom: auto;
+	height: 100%;
+}
+a.animated-button.login-btn:before {
+	display: block;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 0px;
+	width: 100%;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: #D24D57;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.main-header {
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.main-header header>p {
+	font-size: 5px;
 }
