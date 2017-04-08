@@ -29,7 +29,7 @@ class School extends Component {
 
     // initialize state
     this.state = {
-      loginText: 'Please Login',
+      wrongPassword: false,
       teacherName: '',
       teacherContact: '',
       email: '',
@@ -117,7 +117,7 @@ class School extends Component {
   authHandler (err, authData) {
     if (err) {
       this.setState({
-        loginText: 'Wrong username or school code. Please try again!'
+        wrongPassword: true
       })
       return
     }
@@ -173,7 +173,6 @@ class School extends Component {
 
   changePasswd () {
     base.onAuth((user) => {
-      console.log(user)
       if (user) {
         base.resetPassword({
           email: user.email
@@ -190,14 +189,14 @@ class School extends Component {
   renderLogin () {
     const TeacherDetails = (
       <div>
-        <h2 className='title'>Please Enter Your Details</h2>
+        <h2 className='title'>{this.state.wrongPassword ? 'Wrong username or school code. Please try again!' : 'Please Enter Your Details' }</h2>
         <input type='text' required placeholder='Name of Main teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
         <input type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleTeacherContactChange} />
       </div>
       )
     const LoginMessage = (
       <div>
-        <h2>{this.state.loginText}</h2>
+        <h2>{this.state.wrongPassword ? 'Wrong username or school code. Please try again!' : 'Please Login' }</h2>
       </div>
       )
     return (
