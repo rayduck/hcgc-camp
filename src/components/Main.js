@@ -17,7 +17,7 @@ class Main extends Component {
   constructor () {
     super()
     this.state = {
-      placesLeft: '...'
+      placesLeft: '... places available'
     }
   }
   componentWillMount () {
@@ -31,7 +31,12 @@ class Main extends Component {
             studentCount += Object.keys(data[school].students).length
           }
         }
-        this.setState({placesLeft: maxStudents - studentCount})
+        if (maxStudents - studentCount > 0) {
+        this.setState({placesLeft: maxStudents - studentCount + ' places available'})
+        }
+        else {
+          this.setState({placesLeft: 'Registration closed.'})
+        }
       })
   }
   render () {
@@ -43,7 +48,7 @@ class Main extends Component {
               <header>
                 <h1 id='logo'>Primary School Green Camp</h1>
                 <hr />
-                <p>June 1, 2017 | {this.state.placesLeft} places available</p>
+                <p>June 1, 2017 | {this.state.placesLeft}</p>
               </header>
               <footer>
                 <a href='/join' className='button circled scrolly'>Register</a>

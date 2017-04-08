@@ -1881,7 +1881,7 @@ form input[type="email"],
 form input[type="password"],
 form input[type="number"],
 form select {
-	line-height: 1em;
+	line-height: 1.2em;
 }
 
 form textarea {
@@ -2280,6 +2280,16 @@ header .icon.circled {
 
 .logout-btn {
 	margin-left: 8px;
+}
+
+.help {
+	position: relative;
+	top: 60%;
+	left: 75%;
+}
+
+.text {
+	text-align: center;
 }
 
 
