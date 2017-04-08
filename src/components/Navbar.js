@@ -14,7 +14,7 @@ const Navbar = ({
     </div>)
   return (
     <div className='fixed-nav-bar'>
-      <div className='pull-left'><Link to='/'>Green Camp 2017</Link> | {placesLeft > 0 ? `${placesLeft} places remain` : 'Fully registered'}</div>
+      <div className='pull-left'><Link to='/'>Green Camp 2017</Link> | {placesLeft > 0 ? `${placesLeft} places remaining` : 'Fully registered'}</div>
       <div className='pull-right'>
         {showLogout ? logoutBtn : <div /> }
       </div>

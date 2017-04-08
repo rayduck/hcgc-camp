@@ -11,8 +11,8 @@
 - [x] Admin component
 - [x] Export to JSON/CSV/EXCEL
 - [x] Styling (preferably with flexbox)
-- [ ] Add user instructions
-- [ ] Functionalities
+- [x] Add user instructions
+- [x] Functionalities
 
 # Building the app for production with surge.sh
 1. `npm run build` to 'compile' the app (webpack doing its stuff)
