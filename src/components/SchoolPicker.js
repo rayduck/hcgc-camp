@@ -1,5 +1,4 @@
 import React from 'react'
-import base from '../base'
 import {
   Typeahead
 }
@@ -9,11 +8,11 @@ const schoolOptions = ['ADMIRALTY PRIMARY SCHOOL', 'AHMAD IBRAHIM PRIMARY SCHOOL
 const instructions = require('../images/INSTRUCTIONS.pdf')
 
 class SchoolPicker extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.goToSchool = this.goToSchool.bind(this)
   }
-  goToSchool(event) {
+  goToSchool (event) {
     event.preventDefault()
     const schoolId = this.typeHeadInput.state.entryValue
     if (schoolOptions.includes(schoolId)) {
@@ -21,16 +20,16 @@ class SchoolPicker extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
-      <form className='school-selector' onSubmit={this.goToSchool}>
-        <h2 className='title'>Please Select Your School from the list</h2>
-        <Typeahead options={schoolOptions} name='school' maxVisible={5} placeholder='Type and choose' ref={(input) => { this.typeHeadInput = input }} />
-        <button type='submit' className='full-btn'>Submit</button>
-      </form>
-      <a href={instructions} target='_blank' className='help'><i className='fa fa-info-circle' />Help / Instructions</a>
-      <h5 className='text'><i className='fa fa-desktop' />For optimal viewing experience, please use a computer</h5>
+        <form className='school-selector' onSubmit={this.goToSchool}>
+          <h2 className='title'>Please Select Your School from the list</h2>
+          <Typeahead options={schoolOptions} name='school' maxVisible={5} placeholder='Type and choose' ref={(input) => { this.typeHeadInput = input }} />
+          <button type='submit' className='full-btn'>Submit</button>
+        </form>
+        <a href={instructions} target='_blank' className='help'><i className='fa fa-info-circle' />Help / Instructions</a>
+        <h5 className='text'><i className='fa fa-desktop' />For optimal viewing experience, please use a computer</h5>
       </div>
     )
   }

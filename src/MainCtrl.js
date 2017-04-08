@@ -5,7 +5,6 @@ import SchoolPicker from './components/SchoolPicker'
 import School from './components/School'
 import Main from './components/Main'
 import Export from './components/Export'
-import base from './base'
 import { getPlacesLeft } from './utils'
 
 class MainCtrl extends Component {

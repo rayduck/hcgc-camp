@@ -19,17 +19,6 @@ class Panel extends Component {
     }
     this.props.addStudent(student)
     this.panelForm.reset()
-    /*
-    for (let i = 0; i < (student.name.length < this.props.placesLeft ? student.name.length : this.props.placesLeft); i++) {
-      if (i < this.props.placesLeft) {
-        this.props.addStudent({
-          name: student.name[i],
-          age: student.age[i],
-          contact: student.contact[i],
-          diet: student.diet[i]
-        })
-      }
-    } */
   }
   render () {
     return (

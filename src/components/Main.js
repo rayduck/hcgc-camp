@@ -2,12 +2,11 @@ import React, {
   Component
 }
 from 'react'
-import '../css/main.min.css'
+import '../css/main.css'
 import '../css/font-awesome.min.css'
 import Clock from './Clock'
 import BackToTop from './BackToTop'
 import GalleryScroll from './GalleryScroll'
-import base from '../base'
 
 var imgGroup = require('../images/Group.jpg')
 
@@ -23,7 +22,7 @@ class Main extends Component {
               <header>
                 <h1 id='logo'>Primary School Green Camp </h1>
                 <hr />
-                <p>June 1, 2017 | {this.props.placesLeft > 0 || this.props.placesLeft == '...' ? `${this.props.placesLeft} places remain` : 'Fully registered'}</p>
+                <p>June 1, 2017 | {this.props.placesLeft > 0 || this.props.placesLeft === '...' ? `${this.props.placesLeft} places remain` : 'Fully registered'}</p>
               </header>
               <footer>
                 <a href='/join' className='button circled scrolly'>Register</a>

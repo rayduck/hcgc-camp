@@ -264,7 +264,7 @@ class School extends Component {
           </li>
           { Object.keys(this.state.students).map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
-        {this.state.placesLeft > 0 ? <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} /> : <h1> Places full </h1>}
+        {this.state.placesLeft > 0 ? <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} /> : <div /> }
 
       </div>
     )
