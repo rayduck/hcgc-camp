@@ -40,23 +40,27 @@ class Clock extends Component {
       return (
         <div id='clockdiv'>
           <div>
-            <span className='days'>{`0${this.state.days}`.slice(-2)}</span>
-            <div className='smalltext'>days</div>
+            <div>
+              <span className='days'>{`0${this.state.days}`.slice(-2)}</span>
+              <div className='smalltext'>days</div>
+            </div>
+            <div>
+              <span className='hours'>{`0${this.state.hours}`.slice(-2)}
+              </span>
+              <div className='smalltext'>hours</div>
+            </div>
           </div>
           <div>
-            <span className='hours'>{`0${this.state.hours}`.slice(-2)}
-            </span>
-            <div className='smalltext'>hours</div>
-          </div>
-          <div>
-            <span className='minutes'>{`0${this.state.minutes}`.slice(-2)}
-            </span>
-            <div className='smalltext'>minutes</div>
-          </div>
-          <div>
-            <span className='seconds'>{`0${this.state.seconds}`.slice(-2)}
-            </span>
-            <div className='smalltext'>seconds</div>
+            <div>
+              <span className='minutes'>{`0${this.state.minutes}`.slice(-2)}
+              </span>
+              <div className='smalltext'>minutes</div>
+            </div>
+            <div>
+              <span className='seconds'>{`0${this.state.seconds}`.slice(-2)}
+              </span>
+              <div className='smalltext'>seconds</div>
+            </div>
           </div>
         </div>
       )

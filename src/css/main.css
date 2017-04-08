@@ -3,14 +3,16 @@
 #clockdiv {
 	font-family: sans-serif;
 	color: #fff;
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 	font-weight: 100;
 	text-align: center;
 	font-size: 30px;
 	margin-top: 20px;
 }
 
-#clockdiv>div {
+#clockdiv>div>div {
 	padding: 10px;
 	border-radius: 3px;
 	background: #00BF96;
@@ -18,7 +20,7 @@
 	margin-bottom: 3px;
 }
 
-#clockdiv div>span {
+#clockdiv div>div>span {
 	padding: 15px;
 	border-radius: 3px;
 	background: #00816A;
@@ -2470,6 +2472,7 @@ header .icon.circled {
 .carousel .reel {
 	display: flex;
 	align-items: flex-end;
+	flex-wrap: wrap;
 	justify-content: center;
 	white-space: nowrap;
 	position: relative;
@@ -2478,6 +2481,7 @@ header .icon.circled {
 
 .carousel article {
 	display: inline-block;
+	flex-grow: 1;
 	width: 18em;
 	background: #fff;
 	text-align: center;
@@ -2495,6 +2499,10 @@ header .icon.circled {
 	width: auto;
 	margin-right: -2em;
 	margin-bottom: 3em;
+}
+
+.carousel article>p {
+	text-align: justify;
 }
 
 
