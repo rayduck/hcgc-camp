@@ -198,6 +198,7 @@ class School extends Component {
     this.setState({
       uid: null
     })
+    alert('Please check your email for instructions')
     this.props.history.push('/')
   }
 

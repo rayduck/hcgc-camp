@@ -17,4 +17,4 @@
 # Building the app for production with surge.sh
 1. `npm run build` to 'compile' the app (webpack doing its stuff)
 2. `cd` into the build folder, `cp index.html 200.html` to make a copy of 'index.html' and name it '200.html' (This allows for react routing)
-3. `surge ./` and follow commandline interactive prompts to deploy the app, at hcgc-camp.surge.sh
+3. `surge ./ https://hcgc-camp.surge.sh` and follow commandline interactive prompts to deploy the app
