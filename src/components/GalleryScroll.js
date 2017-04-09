@@ -54,7 +54,7 @@ class GalleryScroll extends Component {
           <header>
             <h3><a>Amazing Race</a></h3>
           </header>
-          <p>Grouped into teams and visit booths around the school to play educational games.</p>
+          <p>Grouped into teams and play educational games.</p>
         </article>
 
         <article>
@@ -70,7 +70,7 @@ class GalleryScroll extends Component {
           <header>
             <h3><a>Movie Time & Discussion</a></h3>
           </header>
-          <p>Watch a movie and discuss their thoughts to bring awareness to environmental conservation.</p>
+          <p>Watch films and discuss about environmental issues</p>
         </article>
       </div>
     )

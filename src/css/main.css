@@ -1930,7 +1930,7 @@ button,
 	text-align: center;
 	border-radius: 0.5em;
 	text-decoration: none;
-	padding: 0.65em 3em 0.65em 3em;
+	padding: 0.8em 3em 0.8em 3em;
 	border: 0;
 	cursor: pointer;
 	outline: 0;
@@ -2220,7 +2220,9 @@ header .icon.circled {
 }
 
 .title {
-	margin-left: 30px;
+	position: relative;
+	margin: 4vh 0 2vh 0;
+	text-align: center;
 }
 
 .delete {
@@ -2245,7 +2247,14 @@ header .icon.circled {
 .pull-left {
 	font-size: 1.7em;
 	color: white;
-	padding: 6px 0 0 20px;
+	padding-top: 6px;
+}
+
+.logo-nav {
+	height: 42px;
+	width: auto;
+	float: left;
+	padding: 4px 0 0 20px;
 }
 
 .pull-right {
@@ -2291,12 +2300,11 @@ header .icon.circled {
 
 .help {
 	position: relative;
-	top: 60%;
-	left: 75%;
 }
 
 .text {
 	text-align: center;
+	padding: 2em 1em 0 0;
 }
 
 
@@ -2502,7 +2510,7 @@ header .icon.circled {
 }
 
 .carousel article>p {
-	text-align: justify;
+	text-align: center;
 }
 
 
@@ -2522,18 +2530,18 @@ header .icon.circled {
 		padding: 1.5em 0 1.5em 0;
 	}
 	.carousel .reel {
-		padding: 0 1.5em 0 1.5em;
+		padding: 0em 1.5em 0 1.5em;
 	}
 	.carousel article {
 		width: 18em;
-		margin: 0 1.25em 0 0;
+		margin: 0.5em 1.25em 0 0;
 	}
 }
 
 
 /* Normal */
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
 	/* Basic */
 	body,
 	input,
@@ -2599,7 +2607,10 @@ header .icon.circled {
 	}
 	.carousel article {
 		width: 18em;
-		margin: 0 1em 0 0;
+		margin: 0.5em 1em 0 0;
+	}
+	.carousel article>p {
+		text-align: center;
 	}
 }
 
@@ -2798,7 +2809,7 @@ header .icon.circled {
 	.carousel article {
 		width: 14em;
 		padding-bottom: 2em;
-		margin: 0 0.5em 0 0;
+		margin: 0.5em 0.5em 0 0;
 	}
 	.carousel article .image {
 		margin-bottom: 2em;

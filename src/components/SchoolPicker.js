@@ -27,8 +27,10 @@ class SchoolPicker extends React.Component {
           <Typeahead options={schoolOptions} name='school' maxVisible={5} placeholder='Type and choose' ref={(input) => { this.typeHeadInput = input }} />
           <button type='submit' className='full-btn'>Submit</button>
         </form>
-        <a href='https://drive.google.com/file/d/0B6lxIDYEiSbJUS1VQm1fbHNRV0k/view?usp=sharing' target='_blank' className='help'><i className='fa fa-info-circle' />Help / Instructions</a>
-        <h5 className='text'><i className='fa fa-desktop' />For optimal viewing experience, please use a computer</h5>
+        <div className='text'>
+           <h4><i className='fa fa-desktop' />&nbsp;For optimal viewing experience, please use a computer</h4><br />
+           <a href='https://drive.google.com/file/d/0B6lxIDYEiSbJUS1VQm1fbHNRV0k/view?usp=sharing' target='_blank' className='help'><i className='fa fa-info-circle' />&nbsp;Help / Instructions</a>
+        </div>
       </div>
     )
   }
