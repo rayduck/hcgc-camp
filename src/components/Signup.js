@@ -49,6 +49,7 @@ class Signup extends Component {
         <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
         <input type='password' required placeholder='Password' value={this.state.password} onChange={this.handlePasswordChange} />
         <button type='submit' className='full-btn'>Sign up</button>
+        <div className='text'><i className='fa fa-bell-o' />&nbsp;Note: Please verify your email address before logging in</div>
       </form>
     )
   }

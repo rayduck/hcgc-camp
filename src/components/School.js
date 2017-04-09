@@ -226,6 +226,7 @@ class School extends Component {
           <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
           <input type='password' required placeholder='Password' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
           <button type='submit' className='full-btn'>Submit</button>
+          <div className='text'><i className='fa fa-exclamation-circle' />&nbsp;Note: You can only log in after verifying your email address</div>
         </form>
       </div>
     )
