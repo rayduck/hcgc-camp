@@ -20,13 +20,17 @@ class Signup extends Component {
       email: this.state.email,
       password: this.state.password}, this.signupHandler)
   }
-  signupHandler (err) {
-    if (err)
-    this.setState({
-      signupText: 'Success! Redirecting to Login...'
-    })
-    base.unauth()
-    setTimeout(() => { this.props.history.push('/join') }, 1000)
+  signupHandler (err, user) {
+    if (err) {
+      if (err.code === 'auth/email-already-in-use') this.setState({signupText: 'Email already exists. Please log in!'})
+    } else {
+      user.sendEmailVerification()
+      this.setState({
+        signupText: 'Success! Please check your email to verify your account!'
+      })
+      base.unauth()
+    }
+    setTimeout(() => { this.props.history.push('/') }, 2700)
   }
   handleEmailChange (e) {
     this.setState({

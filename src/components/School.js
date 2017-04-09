@@ -29,7 +29,7 @@ class School extends Component {
 
     // initialize state
     this.state = {
-      wrongPassword: false,
+      errorMessage: false,
       teacherName: '',
       teacherContact: '',
       email: '',
@@ -131,12 +131,13 @@ class School extends Component {
   }
   authHandler (err, authData) {
     if (err) {
-      this.setState({
-        wrongPassword: true
-      })
+      this.setState({ errorMessage: 'Wrong username or school code. Please try again', loading: false})
       return
     }
-
+    if (authData.emailVerified === false) {
+      this.setState({errorMessage: 'Account not verified. Please check your email!', loading: false})
+      return
+    }
     // check if sniperino
     base.fetch('/', { context: this})
       .then(data => {
@@ -204,16 +205,17 @@ class School extends Component {
   }
 
   renderLogin () {
+    const { errorMessage } = this.state
     const TeacherDetails = (
       <div>
-        <h2 className='title'>{this.state.wrongPassword ? 'Wrong username or school code. Please try again!' : 'Please Enter Your Details' }</h2>
+        <h2 className='title'>{errorMessage || 'Please Enter Your Details' }</h2>
         <input type='text' required placeholder='Name of Main teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
         <input type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleTeacherContactChange} />
       </div>
       )
     const LoginMessage = (
       <div>
-        <h2>{this.state.wrongPassword ? 'Wrong email or password. Please try again!' : 'Please Login' }</h2>
+        <h2 className='title'>{errorMessage || 'Please Login' }</h2>
       </div>
       )
     return (
