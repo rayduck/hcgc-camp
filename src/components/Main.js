@@ -23,7 +23,7 @@ class Main extends Component {
               <header className='main-header'>
                 <h1 id='logo'>Primary School Green Camp </h1>
                 <hr />
-                <p>June 1, 2017 | {this.props.placesLeft > 0 || this.props.placesLeft === '...' ? `${this.props.placesLeft} places remain` : 'Fully registered'}</p>
+                <p>June 1, 2017 | {this.props.placesLeft === '...' ? <span><i className='fa fa-circle-o-notch fa-spin fa-fw' /> Checking Availability</span> : (this.props.placesLeft > 0 ? `${this.props.placesLeft} places remain` : 'Fully registered') }</p>
               </header>
               <div>
                 <div className='button-wrap'>
