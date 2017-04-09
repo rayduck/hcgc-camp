@@ -40,38 +40,40 @@ class GalleryScroll extends Component {
   render () {
     return (
       <div className='reel'>
+        <div className='inner-wraps'>
+          <article>
+            <a className='image featured'><img src={this.state.IB[this.state.imageID]} alt='' /></a>
+            <header>
+              <h3><a>Icebreakers</a></h3>
+            </header>
+            <p>Enjoy a few games along with their assigned facilitators!</p>
+          </article>
 
-        <article>
-          <a className='image featured'><img src={this.state.IB[this.state.imageID]} alt='' /></a>
-          <header>
-            <h3><a>Icebreakers</a></h3>
-          </header>
-          <p>Enjoy a few games along with their assigned facilitators!</p>
-        </article>
+          <article>
+            <a className='image featured'><img src={this.state.AR[this.state.imageID]} alt='' /></a>
+            <header>
+              <h3><a>Amazing Race</a></h3>
+            </header>
+            <p>Grouped into teams and play educational games.</p>
+          </article>
+        </div>
+        <div className='inner-wraps'>
+          <article>
+            <a className='image featured'><img src={this.state.DIY[this.state.imageID]} alt='' /></a>
+            <header>
+              <h3><a>Do-It-Yourself Workshop</a></h3>
+            </header>
+            <p>Behold the power of upcycling! DIY a personal terrarium.</p>
+          </article>
 
-        <article>
-          <a className='image featured'><img src={this.state.AR[this.state.imageID]} alt='' /></a>
-          <header>
-            <h3><a>Amazing Race</a></h3>
-          </header>
-          <p>Grouped into teams and play educational games.</p>
-        </article>
-
-        <article>
-          <a className='image featured'><img src={this.state.DIY[this.state.imageID]} alt='' /></a>
-          <header>
-            <h3><a>Do-It-Yourself Workshop</a></h3>
-          </header>
-          <p>Behold the power of upcycling! DIY a personal terrarium.</p>
-        </article>
-
-        <article>
-          <a className='image featured'><img src={this.state.Movie[this.state.imageID]} alt='' /></a>
-          <header>
-            <h3><a>Movie Time & Discussion</a></h3>
-          </header>
-          <p>Watch films and discuss about environmental issues</p>
-        </article>
+          <article>
+            <a className='image featured'><img src={this.state.Movie[this.state.imageID]} alt='' /></a>
+            <header>
+              <h3><a>Movie Time & Discussion</a></h3>
+            </header>
+            <p>Watch films and discuss about environmental issues</p>
+          </article>
+        </div>
       </div>
     )
   }

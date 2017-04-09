@@ -2513,6 +2513,12 @@ header .icon.circled {
 	text-align: center;
 }
 
+.inner-wraps {
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+}
+
 
 /* Wide */
 
