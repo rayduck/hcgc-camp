@@ -63,7 +63,7 @@ class GalleryScroll extends Component {
             <header>
               <h3><a>Do-It-Yourself Workshop</a></h3>
             </header>
-            <p>Behold the power of upcycling! DIY a personal terrarium.</p>
+            <p>Behold the power of upcycling!</p>
           </article>
 
           <article>
