@@ -79,7 +79,7 @@ class Main extends Component {
 							Organised by Hwa Chong Green Council, the Primary School Green Camp aims to introduce primary school students to the pertinent environmental issues and prepare them to be responsible stewards of the environment. Join the camp today for an enthralling and meaningful experience that you will never forget! See you there!
 						</p>
               <footer>
-                <a href='/join' className='button'>Register Now!</a>
+                <a href='/signup' className='button'>Register Now!</a>
               </footer>
             </article>
 
