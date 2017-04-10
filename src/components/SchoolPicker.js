@@ -23,13 +23,13 @@ class SchoolPicker extends React.Component {
     return (
       <div>
         <form className='school-selector' onSubmit={this.goToSchool}>
-          <h2 className='title'>Please Select Your School from the list</h2>
+          <h2 className='title'>Please Select Your School From The List</h2>
           <Typeahead options={schoolOptions} name='school' maxVisible={5} placeholder='Type and choose' ref={(input) => { this.typeHeadInput = input }} />
           <button type='submit' className='full-btn'>Submit</button>
         </form>
         <div className='text'>
-           <h4><i className='fa fa-desktop' />&nbsp;For optimal viewing experience, please use a computer</h4><br />
-           <a href='https://drive.google.com/file/d/0B6lxIDYEiSbJUS1VQm1fbHNRV0k/view?usp=sharing' target='_blank' className='help'><i className='fa fa-info-circle' />&nbsp;Help / Instructions</a>
+          <h4><i className='fa fa-desktop' />&nbsp;For an optimal viewing experience, please vist this site on a computer.</h4><br />
+          <a href='https://drive.google.com/file/d/0B6lxIDYEiSbJUS1VQm1fbHNRV0k/view?usp=sharing' target='_blank' className='help'><i className='fa fa-info-circle' />&nbsp;Help / Instructions</a>
         </div>
       </div>
     )

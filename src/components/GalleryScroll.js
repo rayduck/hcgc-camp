@@ -46,7 +46,7 @@ class GalleryScroll extends Component {
             <header>
               <h3><a>Icebreakers</a></h3>
             </header>
-            <p>Enjoy a few games along with their assigned facilitators!</p>
+            <p>Relish in fun activities with convival facilitators!</p>
           </article>
 
           <article>
@@ -54,7 +54,7 @@ class GalleryScroll extends Component {
             <header>
               <h3><a>Amazing Race</a></h3>
             </header>
-            <p>Grouped into teams and play educational games.</p>
+            <p>Compete and achieve as a team in educational games.</p>
           </article>
         </div>
         <div className='inner-wraps'>
@@ -69,9 +69,9 @@ class GalleryScroll extends Component {
           <article>
             <a className='image featured'><img src={this.state.Movie[this.state.imageID]} alt='' /></a>
             <header>
-              <h3><a>Movie Time & Discussion</a></h3>
+              <h3><a>Movie Time & Discussions</a></h3>
             </header>
-            <p>Watch films and discuss about environmental issues</p>
+            <p>Watch films and explore environmental issues</p>
           </article>
         </div>
       </div>

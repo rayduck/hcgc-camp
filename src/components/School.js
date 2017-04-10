@@ -131,11 +131,11 @@ class School extends Component {
   }
   authHandler (err, authData) {
     if (err) {
-      this.setState({ errorMessage: 'Wrong username or school code. Please try again', loading: false})
+      this.setState({ errorMessage: 'Wrong username or school code. Please try again!', loading: false})
       return
     }
     if (authData.emailVerified === false) {
-      this.setState({errorMessage: 'Account not verified. Please check your email!', loading: false})
+      this.setState({errorMessage: 'Unverified account. Please check your email!', loading: false})
       return
     }
     // check if sniperino
@@ -209,7 +209,7 @@ class School extends Component {
     const TeacherDetails = (
       <div>
         <h2 className='title'>{errorMessage || 'Please Enter Your Details' }</h2>
-        <input type='text' required placeholder='Name of Main teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
+        <input type='text' required placeholder='Name of Main Teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
         <input type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleTeacherContactChange} />
       </div>
       )
@@ -260,7 +260,7 @@ class School extends Component {
               Age
             </div>
             <div className='student-1'>
-              Parents' Contact
+              Parent's Contact
             </div>
             <div className='student-1'>
               Dietary Requirements

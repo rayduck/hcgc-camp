@@ -71,13 +71,12 @@ class Main extends Component {
 							</p>
               </header>
               <p>
-              What is a carbon footprint? It is the total amount of greenhouse gases produced to directly and indirectly support human activities, usually expressed in equivalent tons of
-              carbon dioxide (CO2). Despite only contributing around 0.11% of global emissions, Singapore ranks 26th out of 142 countries in terms of emissions per capita. This means that Singaporeans are not
-              as environmentally-friendly as we should be.
-              Thankfully, this problem can easily be rectified by making adjustments to our daily habits.
+              What is a carbon footprint? It is the total amount of greenhouse gases produced to support human activities, usually expressed in equivalent tons of
+              carbon dioxide (CO2). Despite contributing a mere 0.11% of global emissions, Singapore ranks 26th out of 142 countries in terms of emissions per capita. Such worrying statistics suggest that more could be done by us Singaporeans to conserve Mother Nature.
+              It's high time to take charge of the environment and reduce our carbon footprint, one step at a time!
               <br />
                 <br />
-							Organised by Hwa Chong Green Council, we wish to expose primary school students to the various environmental issues that we face, and educate them on what they can do to make a change. Join the camp today for a fulfilling experience that you will never forget! See you there!
+							Organised by Hwa Chong Green Council, the Primary School Green Camp aims to introduce primary school students to the pertinent environmental issues and prepare them to be responsible stewards of the environment. Join the camp today for an enthralling and meaningful experience that you will never forget! See you there!
 						</p>
               <footer>
                 <a href='/join' className='button'>Register Now!</a>
@@ -108,7 +107,7 @@ class Main extends Component {
                     <header>
                       <h3>Any burning questions?</h3>
                     </header>
-                    <p>Send us a message on any of these social media platforms:</p>
+                    <p>Send us a message on these social media platforms:</p>
                     <ul className='icons'>
                       <li><a href='https://www.facebook.com/hcgreenmovement/' className='icon fa-facebook'><span className='label'>Facebook</span></a></li>
                       <li><a href='https://www.instagram.com/hc_green_council/' className='icon fa-instagram'><span className='label'>Instagram</span></a></li>
