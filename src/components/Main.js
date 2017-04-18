@@ -112,6 +112,7 @@ class Main extends Component {
                       <li><a href='https://www.facebook.com/hcgreenmovement/' className='icon fa-facebook'><span className='label'>Facebook</span></a></li>
                       <li><a href='https://www.instagram.com/hc_green_council/' className='icon fa-instagram'><span className='label'>Instagram</span></a></li>
                     </ul>
+                    <p>For technical issues, please contact hcgcgreencamp@gmail.com</p>
                   </section>
 
                   <div className='copyright'>
