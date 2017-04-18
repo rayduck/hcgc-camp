@@ -5,12 +5,12 @@ class Signup extends Component {
   constructor () {
     super()
     this.signupUser = this.signupUser.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.signupHandler = this.signupHandler.bind(this)
     this.state = {
       email: '',
       password: '',
+      confirmPassword: '',
       signupText: 'Please sign up'
     }
   }
@@ -32,22 +32,23 @@ class Signup extends Component {
     }
     setTimeout(() => { this.props.history.push('/') }, 2700)
   }
-  handleEmailChange (e) {
+  handleInputChange (e) {
+    const samePasswd = (target, value) => {
+      const validity = value === this.state.password ? '' : 'passwords do not match!'
+      target.setCustomValidity(validity)
+    }
+    const {name, value} = e.target
     this.setState({
-      email: e.target.value
-    })
-  }
-  handlePasswordChange (e) {
-    this.setState({
-      password: e.target.value
-    })
+      [name]: value
+    }, name === 'confirmPassword' && samePasswd(e.target, value))
   }
   render () {
     return (
       <form className='signup' onSubmit={this.signupUser}>
         <h2 className='title'>{this.state.signupText}</h2>
-        <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
-        <input type='password' required placeholder='Password' value={this.state.password} onChange={this.handlePasswordChange} />
+        <input name='email' type='email' required placeholder='Email' value={this.state.email} onChange={this.handleInputChange} />
+        <input name='password' type='password' required placeholder='Password' value={this.state.password} onChange={this.handleInputChange} />
+        <input name='confirmPassword' type='password' required placeholder='Confirm password' value={this.state.confirmPassword} onChange={this.handleInputChange} />
         <button type='submit' className='full-btn'>Sign up</button>
         <div className='text'><i className='fa fa-bell-o' />&nbsp;Note: Please verify your email address before logging in</div>
       </form>

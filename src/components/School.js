@@ -19,10 +19,7 @@ class School extends Component {
     this.renderLogin = this.renderLogin.bind(this)
     this.authenticate = this.authenticate.bind(this)
     this.authHandler = this.authHandler.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
-    this.handleTeacherNameChange = this.handleTeacherNameChange.bind(this)
-    this.handleTeacherContactChange = this.handleTeacherContactChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.logout = this.logout.bind(this)
     this.changePasswd = this.changePasswd.bind(this)
     this.renderLogin = this.renderLogin.bind(this)
@@ -33,7 +30,7 @@ class School extends Component {
       teacherName: '',
       teacherContact: '',
       email: '',
-      schoolCode: '',
+      password: '',
       ownerIds: '',
       firstLogin: true,
       loading: true,
@@ -92,24 +89,10 @@ class School extends Component {
       placesLeft
     })
   }
-  handleEmailChange (e) {
+  handleInputChange (e) {
+    const {name, value} = e.target
     this.setState({
-      email: e.target.value
-    })
-  }
-  handlePasswordChange (e) {
-    this.setState({
-      schoolCode: e.target.value
-    })
-  }
-  handleTeacherNameChange (e) {
-    this.setState({
-      teacherName: e.target.value
-    })
-  }
-  handleTeacherContactChange (e) {
-    this.setState({
-      teacherContact: e.target.value
+      [name]: value
     })
   }
   removeStudent (studentId) {
@@ -126,7 +109,7 @@ class School extends Component {
     event.preventDefault()
     base.authWithPassword({
       email: this.state.email,
-      password: this.state.schoolCode
+      password: this.state.password
     }, this.authHandler)
   }
   authHandler (err, authData) {
@@ -209,8 +192,8 @@ class School extends Component {
     const TeacherDetails = (
       <div>
         <h2 className='title'>{errorMessage || 'Please Enter Your Details' }</h2>
-        <input type='text' required placeholder='Name of Main Teacher In-Charge' value={this.state.teacherName} onChange={this.handleTeacherNameChange} />
-        <input type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleTeacherContactChange} />
+        <input name='teacherName' type='text' required placeholder='Name of Main Teacher In-Charge' value={this.state.teacherName} onChange={this.handleInputChange} />
+        <input name='teacherContact' type='number' required placeholder='Contact Number' value={this.state.teacherContact} onChange={this.handleInputChange} />
       </div>
       )
     const LoginMessage = (
@@ -223,8 +206,8 @@ class School extends Component {
         <Navbar placesLeft={this.state.placesLeft} />
         <form className='login' onSubmit={this.authenticate}>
           {this.state.firstLogin ? TeacherDetails : LoginMessage}
-          <input type='email' required placeholder='Email' value={this.state.email} onChange={this.handleEmailChange} />
-          <input type='password' required placeholder='Password' value={this.state.schoolCode} onChange={this.handlePasswordChange} />
+          <input name='email' type='email' required placeholder='Email' value={this.state.email} onChange={this.handleInputChange} />
+          <input name='password' type='password' required placeholder='Password' value={this.state.password} onChange={this.handleInputChange} />
           <button type='submit' className='full-btn'>Submit</button>
           <div className='text'><i className='fa fa-exclamation-circle' />&nbsp;Note: You can only log in after verifying your email address</div>
         </form>
@@ -269,7 +252,7 @@ class School extends Component {
           </li>
           { Object.keys(this.state.students).reverse().map(key => <Student key={key} details={this.state.students[key]} removeStudent={this.removeStudent} studentId={key} />) /* Here we use map to iterate all the students in our state and generate a Student component. key is added to make all components unique. */}
         </ul>
-        {this.state.placesLeft > 0 ? <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} /> : <div /> }
+        {this.state.placesLeft > 0 && <Panel addStudent={this.addStudent} placesLeft={this.state.placesLeft} />}
 
       </div>
     )
