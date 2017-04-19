@@ -30,6 +30,9 @@ class SchoolPicker extends React.Component {
         <div className='text'>
           <h4><i className='fa fa-desktop' />&nbsp;For an optimal viewing experience, please vist this site on a computer.</h4><br />
           <a href='https://drive.google.com/file/d/0B6lxIDYEiSbJUS1VQm1fbHNRV0k/view?usp=sharing' target='_blank' className='help'><i className='fa fa-info-circle' />&nbsp;Help / Instructions</a>
+          <br />
+          <br />
+          <i className='fa fa-question' />&nbsp;For technical support, kindly email to <a href="mailto:hcgcgreencamp@gmail.com?cc=william@hci.edu.sg&amp;subject=HCGC%20Green%20Camp%20Technical%20Issues">hcgcgreencamp@gmail.com</a>
         </div>
       </div>
     )
