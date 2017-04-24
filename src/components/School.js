@@ -76,9 +76,9 @@ class School extends Component {
       let timestamp = Date.now() // using timestamp to generate unique students
       let newStudent = {
         name: student.name[i],
-        age: student.age[i],
-        contact: student.contact[i],
-        diet: student.diet[i]
+        age: student.age[i] || '-',
+        contact: student.contact[i] || '-',
+        diet: student.diet[i] || '-'
       }
       students[`student-${timestamp}${i}`] = newStudent
       placesLeft -= 1

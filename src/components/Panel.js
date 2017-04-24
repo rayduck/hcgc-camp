@@ -12,11 +12,12 @@ class Panel extends Component {
   addStudent (event) {
     event.preventDefault()
     const student = {
-      name: this.name.value.split('\n'),
+      name: this.name.value.split('\n').filter(name => name),
       age: this.age.value.split('\n'),
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
+    console.log(student.name)
     this.props.addStudent(student)
     this.panelForm.reset()
   }
