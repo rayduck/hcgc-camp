@@ -17,7 +17,6 @@ class Panel extends Component {
       contact: this.contact.value.split('\n'),
       diet: this.diet.value.split('\n')
     }
-    console.log(student.name)
     this.props.addStudent(student)
     this.panelForm.reset()
   }
