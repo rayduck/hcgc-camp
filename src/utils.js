@@ -2,7 +2,7 @@ import base from './base'
 export const getPlacesLeft = (thisContext) => {
   base.fetch('/', { context: thisContext })
   .then(data => {
-    const maxStudents = 200
+    const maxStudents = 202
     let studentCount = 0
     for (let school of Object.keys(data)) {
       if (data[school].students) {
