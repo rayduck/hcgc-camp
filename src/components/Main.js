@@ -24,6 +24,7 @@ class Main extends Component {
                 <h1 id='logo'>Primary School Green Camp </h1>
                 <hr />
                 <p>June 1, 2017 | {this.props.placesLeft === '...' ? <span><i className='fa fa-circle-o-notch fa-spin fa-fw' /> Checking Availability</span> : (this.props.placesLeft > 0 ? `${this.props.placesLeft} places remain` : 'Fully registered') }</p>
+                {this.props.placesLeft === 0 && <p>Thank you for your overwhelming support.<br />We regret to inform you that our camp is fully booked and registration is now closed. <br /> We hope to see you next year!</p>}
               </header>
               <div>
                 <div className='button-wrap'>
