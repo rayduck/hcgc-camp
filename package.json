@@ -6,8 +6,8 @@
     "clipboard": "^1.6.1",
     "firebase": "^3.7.3",
     "re-base": "^2.6.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-router-dom": "^4.0.0-beta.7",
     "react-typeahead": "^2.0.0-alpha.5",
     "reactfire": "^1.0.0"
